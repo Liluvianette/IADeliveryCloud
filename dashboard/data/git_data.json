@@ -7,6 +7,16 @@
   "lookback_days": 30,
   "commits": [
     {
+      "sha": "73f8a75e",
+      "repo": "IADeliveryCloud",
+      "repo_full": "Liluvianette/IADeliveryCloud",
+      "author": "Liliana V",
+      "email": "liluvianette@gmail.com",
+      "login": "Liluvianette",
+      "date": "2026-03-08",
+      "message": "feat: GitHub API real conectado - 5B completado"
+    },
+    {
       "sha": "6938fe5b",
       "repo": "IADeliveryCloud",
       "repo_full": "Liluvianette/IADeliveryCloud",
@@ -92,7 +102,7 @@
   "metrics": {
     "by_author": {
       "Liluvianette": {
-        "commits": 7,
+        "commits": 8,
         "prs_opened": 0,
         "prs_merged": 0,
         "reviews_given": 0,
@@ -102,6 +112,11 @@
           "IADeliveryCloud"
         ],
         "recent_commits": [
+          {
+            "date": "2026-03-08",
+            "message": "feat: GitHub API real conectado - 5B completado",
+            "repo": "IADeliveryCloud"
+          },
           {
             "date": "2026-03-08",
             "message": "feat: Jira integration - endpoint search/jql activo",
@@ -120,11 +135,6 @@
           {
             "date": "2026-03-08",
             "message": "meerge branch 'main' of https://github.com/Liluvianette/IADeliveryCloud",
-            "repo": "IADeliveryCloud"
-          },
-          {
-            "date": "2026-03-08",
-            "message": "sacando archivos a nivel root",
             "repo": "IADeliveryCloud"
           }
         ]
@@ -150,7 +160,7 @@
     },
     "by_repo": {
       "IADeliveryCloud": {
-        "commits": 8,
+        "commits": 9,
         "prs": 0,
         "merged_prs": 0,
         "authors": [
@@ -160,7 +170,7 @@
       }
     },
     "totals": {
-      "commits": 8,
+      "commits": 9,
       "pulls": 0,
       "merged_prs": 0,
       "reviews": 0,
@@ -168,5 +178,5 @@
       "active_repos": 1
     }
   },
-  "generated_at": "2026-03-08T22:36:05.252097"
+  "generated_at": "2026-03-08T23:02:31.258904"
 }

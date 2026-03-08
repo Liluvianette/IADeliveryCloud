@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reporte Ejecutivo — Cloud Delivery Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:  #4f46e5;
+      --success:  #059669;
+      --warning:  #d97706;
+      --danger:   #dc2626;
+      --muted:    #6b7280;
+      --border:   #e5e7eb;
+      --bg-light: #f9fafb;
+      --text:     #111827;
+      --text-2:   #374151;
+      --text-3:   #6b7280;
+      --white:    #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f3f4f6;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* ── Print button (oculto al imprimir) ─────────────── */
+    .print-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: #1e1b4b; padding: 10px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .print-bar span {
+      color: #a5b4fc; font-size: 12px; font-weight: 500;
+    }
+    .print-bar-actions { display: flex; gap: 10px; }
+    .btn-print {
+      background: #4f46e5; color: white; border: none;
+      padding: 7px 20px; border-radius: 6px; font-size: 12px;
+      font-weight: 600; cursor: pointer; letter-spacing: .02em;
+      transition: background .2s;
+    }
+    .btn-print:hover { background: #4338ca; }
+    .btn-outline {
+      background: transparent; color: #a5b4fc;
+      border: 1px solid #4f46e5; padding: 7px 16px;
+      border-radius: 6px; font-size: 12px; cursor: pointer;
+    }
+
+    /* ── Página ─────────────────────────────────────────── */
+    .page {
+      max-width: 900px; margin: 56px auto 40px;
+      background: white; box-shadow: 0 1px 3px rgba(0,0,0,.12);
+    }
+
+    /* ── Header del reporte ─────────────────────────────── */
+    .report-header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%);
+      padding: 32px 36px 28px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    .report-title { color: white; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+    .report-subtitle { color: #a5b4fc; font-size: 12px; }
+    .report-meta { text-align: right; }
+    .report-meta .date { color: white; font-size: 13px; font-weight: 600; }
+    .report-meta .version { color: #a5b4fc; font-size: 11px; margin-top: 2px; }
+
+    /* ── Contenido ──────────────────────────────────────── */
+    .content { padding: 28px 36px; }
+
+    /* ── Banner de decisión ─────────────────────────────── */
+    .banner {
+      border-radius: 8px; padding: 14px 20px; margin-bottom: 24px;
+      display: flex; align-items: center; gap: 14px;
+      font-size: 14px; font-weight: 600;
+    }
+    .banner-yes { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+    .banner-no  { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+    .banner-icon { font-size: 20px; }
+    .banner-text { flex: 1; }
+    .banner-sub { font-size: 11px; font-weight: 400; margin-top: 2px; opacity: .8; }
+
+    /* ── KPIs ───────────────────────────────────────────── */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      gap: 10px; margin-bottom: 28px;
+    }
+    .kpi-card {
+      background: var(--bg-light); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px 10px; text-align: center;
+    }
+    .kpi-value { font-size: 22px; font-weight: 700; line-height: 1.1; }
+    .kpi-label { font-size: 10px; color: var(--text-3); margin-top: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; }
+
+    /* ── Sección ─────────────────────────────────────────── */
+    .section { margin-bottom: 28px; }
+    .section-title {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 6px; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-title::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--border); margin-top: 2px;
+    }
+
+    /* ── Tabla base ─────────────────────────────────────── */
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th {
+      background: #1e1b4b; color: white; padding: 9px 12px;
+      text-align: left; font-weight: 600; font-size: 11px;
+      text-transform: uppercase; letter-spacing: .05em;
+    }
+    td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tr:nth-child(even) td { background: var(--bg-light); }
+    tr:last-child td { border-bottom: none; }
+
+    /* ── Load bar ───────────────────────────────────────── */
+    .bar-wrap { width: 100%; background: #e5e7eb; border-radius: 99px; height: 7px; min-width: 60px; }
+    .bar-fill  { height: 7px; border-radius: 99px; transition: width .3s; }
+
+    /* ── Badges ─────────────────────────────────────────── */
+    .badge {
+      display: inline-block; padding: 2px 8px; border-radius: 99px;
+      font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
+    }
+    .b-activo      { background: #d1fae5; color: #065f46; }
+    .b-pausado     { background: #fef3c7; color: #92400e; }
+    .b-planificado { background: #ede9fe; color: #5b21b6; }
+    .b-completado  { background: #f3f4f6; color: #6b7280; }
+    .b-critica     { background: #fee2e2; color: #991b1b; }
+    .b-alta        { background: #fef3c7; color: #92400e; }
+    .b-media       { background: #ede9fe; color: #5b21b6; }
+    .b-baja        { background: #d1fae5; color: #065f46; }
+    .b-iac         { background: #dbeafe; color: #1e40af; }
+    .b-desarrollo  { background: #fce7f3; color: #9d174d; }
+    .b-soporte     { background: #fef3c7; color: #92400e; }
+    .b-investigacion { background: #e0f2fe; color: #075985; }
+
+    /* ── Risk rows ──────────────────────────────────────── */
+    .risk-item {
+      display: flex; gap: 12px; padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .risk-item:last-child { border-bottom: none; }
+    .risk-item:nth-child(even) { background: var(--bg-light); }
+    .risk-sev {
+      flex-shrink: 0; width: 60px; text-align: center;
+      padding: 3px 0; border-radius: 4px;
+      font-size: 9px; font-weight: 700; text-transform: uppercase;
+    }
+    .rs-critica  { background: #fee2e2; color: #991b1b; }
+    .rs-alta     { background: #fef3c7; color: #92400e; }
+    .rs-media    { background: #ede9fe; color: #5b21b6; }
+    .rs-baja     { background: #d1fae5; color: #065f46; }
+    .risk-body   { flex: 1; }
+    .risk-title  { font-weight: 600; font-size: 12px; color: var(--text); }
+    .risk-desc   { color: var(--text-3); font-size: 11px; margin-top: 2px; }
+    .risk-reco   { color: #4f46e5; font-size: 11px; margin-top: 3px; }
+
+    /* ── Skills grid ────────────────────────────────────── */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    }
+    .skill-card {
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 10px 12px; background: var(--bg-light);
+    }
+    .skill-name  { font-size: 11px; font-weight: 600; color: var(--text-2); margin-bottom: 4px; }
+    .skill-bar   { margin-bottom: 4px; }
+    .skill-meta  { font-size: 10px; color: var(--text-3); }
+    .skill-spof  {
+      display: inline-block; background: #fee2e2; color: #991b1b;
+      font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px;
+      margin-bottom: 3px;
+    }
+
+    /* ── Git / Jira summary ─────────────────────────────── */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+      margin-bottom: 10px;
+    }
+    .stat-mini {
+      background: var(--bg-light); border: 1px solid var(--border);
+      border-radius: 6px; padding: 10px 12px; text-align: center;
+    }
+    .stat-mini-val   { font-size: 18px; font-weight: 700; color: var(--primary); }
+    .stat-mini-label { font-size: 10px; color: var(--text-3); font-weight: 500; margin-top: 2px; }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    .report-footer {
+      border-top: 2px solid var(--primary);
+      padding: 14px 36px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--bg-light);
+    }
+    .footer-left  { font-size: 10px; color: var(--text-3); }
+    .footer-right { font-size: 10px; color: var(--text-3); }
+
+    /* ── Colores de carga ───────────────────────────────── */
+    .clr-ok      { color: #059669; }
+    .clr-normal  { color: #4f46e5; }
+    .clr-warn    { color: #d97706; }
+    .clr-danger  { color: #dc2626; }
+
+    /* ── @media print ───────────────────────────────────── */
+    @media print {
+      @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+
+      body { background: white; font-size: 11px; }
+
+      .print-bar { display: none !important; }
+
+      .page {
+        max-width: 100%; margin: 0;
+        box-shadow: none; border: none;
+      }
+
+      .report-header { padding: 20px 24px 16px; }
+      .report-title  { font-size: 18px; }
+      .content       { padding: 18px 24px; }
+
+      .kpi-grid      { grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 16px; }
+      .kpi-card      { padding: 10px 6px; }
+      .kpi-value     { font-size: 17px; }
+
+      .skills-grid   { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+
+      /* Evitar cortes en filas de tablas */
+      tr, .risk-item, .skill-card { page-break-inside: avoid; }
+
+      /* Salto antes de sección de skills */
+      .page-break-before { page-break-before: always; }
+
+      table { font-size: 10px; }
+      th, td { padding: 6px 8px; }
+
+      .section { margin-bottom: 18px; }
+
+      .report-footer { padding: 10px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Barra de impresión (visible solo en pantalla) -->
+<div class="print-bar">
+  <span>📄 Cloud Delivery Intelligence — Vista previa del Reporte Ejecutivo</span>
+  <div class="print-bar-actions">
+    <button class="btn-outline" onclick="window.close()">✕ Cerrar</button>
+    <button class="btn-print" onclick="window.print()">🖨️ Guardar como PDF / Imprimir</button>
+  </div>
+</div>
+
+<!-- Página del reporte -->
+<div class="page">
+
+  <!-- Header -->
+  <div class="report-header">
+    <div>
+      <div class="report-title">☁ Cloud Delivery Intelligence</div>
+      <div class="report-subtitle">Reporte Ejecutivo de Capacidad y Salud del Equipo</div>
+    </div>
+    <div class="report-meta">
+      <div class="date" id="reportDate">—</div>
+      <div class="version">Generado automáticamente</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Banner decisión -->
+    <div id="banner" class="banner banner-no">
+      <div class="banner-icon">⏳</div>
+      <div class="banner-text">
+        <div>Cargando...</div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-grid" id="kpiGrid">
+      <div class="kpi-card"><div class="kpi-value">—</div><div class="kpi-label">Carga</div></div>
+      <div class="kpi-card"><div class="kpi-value">—</div><div class="kpi-label">Health</div></div>
+      <div class="kpi-card"><div class="kpi-value">—</div><div class="kpi-label">Sobrecargados</div></div>
+      <div class="kpi-card"><div class="kpi-value">—</div><div class="kpi-label">Riesgos críticos</div></div>
+      <div class="kpi-card"><div class="kpi-value">—</div><div class="kpi-label">Proyectos activos</div></div>
+      <div class="kpi-card"><div class="kpi-value">—</div><div class="kpi-label">Man-months libres</div></div>
+    </div>
+
+    <!-- Capacidad por persona -->
+    <div class="section">
+      <div class="section-title">Capacidad por Persona</div>
+      <table id="teamTable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Rol</th>
+            <th>Disponible</th>
+            <th>Asignado</th>
+            <th style="width:130px">Carga</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody id="teamBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Proyectos -->
+    <div class="section">
+      <div class="section-title">Estado de Proyectos</div>
+      <table id="projTable">
+        <thead>
+          <tr>
+            <th style="width:80px">ID</th>
+            <th>Proyecto</th>
+            <th>Tipo</th>
+            <th>Severidad</th>
+            <th>Estado</th>
+            <th style="width:120px">Progreso</th>
+          </tr>
+        </thead>
+        <tbody id="projBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Riesgos + Git/Jira stats en página 2 -->
+    <div class="page-break-before"></div>
+
+    <!-- Stats Git + Jira -->
+    <div class="section" id="activitySection">
+      <div class="section-title">Actividad del Equipo (últimos 30 días)</div>
+      <div class="stat-row" id="activityStats">
+        <div class="stat-mini"><div class="stat-mini-val">—</div><div class="stat-mini-label">Commits</div></div>
+        <div class="stat-mini"><div class="stat-mini-val">—</div><div class="stat-mini-label">Pull Requests</div></div>
+        <div class="stat-mini"><div class="stat-mini-val">—</div><div class="stat-mini-label">PRs Mergeados</div></div>
+        <div class="stat-mini"><div class="stat-mini-val">—</div><div class="stat-mini-label">Issues Jira</div></div>
+      </div>
+    </div>
+
+    <!-- Riesgos -->
+    <div class="section">
+      <div class="section-title">Riesgos Detectados</div>
+      <div id="riskList"></div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <div class="section-title">Cobertura de Habilidades</div>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- Footer -->
+  <div class="report-footer">
+    <div class="footer-left">Cloud Delivery Intelligence Platform · Uso interno</div>
+    <div class="footer-right" id="footerDate">—</div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+// ── Helpers ───────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+
+function loadColor(pct) {
+  if (pct > 1.0)  return '#dc2626';
+  if (pct > 0.85) return '#d97706';
+  if (pct > 0.60) return '#4f46e5';
+  return '#059669';
+}
+
+function loadColorClass(pct) {
+  if (pct > 1.0)  return 'clr-danger';
+  if (pct > 0.85) return 'clr-warn';
+  if (pct > 0.60) return 'clr-normal';
+  return 'clr-ok';
+}
+
+function healthColor(score) {
+  if (score >= 70) return '#059669';
+  if (score >= 40) return '#d97706';
+  return '#dc2626';
+}
+
+function pct(done, total) {
+  return total > 0 ? Math.round(done / total * 100) : 0;
+}
+
+async function fetchJSON(path) {
+  const r = await fetch(path + '?t=' + Date.now());
+  if (!r.ok) throw new Error(path);
+  return r.json();
+}
+
+// ── Render ─────────────────────────────────────────────────
+function renderBanner(summary, el) {
+  const can = summary.can_accept_new_project;
+  el.className = `banner ${can ? 'banner-yes' : 'banner-no'}`;
+  el.innerHTML = `
+    <div class="banner-icon">${can ? '✅' : '🚫'}</div>
+    <div class="banner-text">
+      <div>${can ? 'El equipo PUEDE aceptar un proyecto nuevo' : 'El equipo NO puede aceptar proyectos nuevos'}</div>
+      <div class="banner-sub">
+        Carga actual: ${Math.round(summary.team_load_percent * 100)}% ·
+        Horas libres: ${summary.total_free_hours.toFixed(0)}h ·
+        Man-months disponibles: ${summary.estimated_free_manmonths.toFixed(1)}
+      </div>
+    </div>`;
+}
+
+function renderKPIs(cap, health) {
+  const s     = cap.summary;
+  const score = health.health_score.score;
+  const risks = health.risks_by_severity;
+  const activos = (cap.project_loads ? Object.keys(cap.project_loads).length : 0);
+  const overloaded = cap.team.filter(m => m.load_percent > 1.0).length;
+  const hClr  = healthColor(score);
+  const lClr  = loadColor(s.team_load_percent);
+
+  $('kpiGrid').innerHTML = [
+    { val: Math.round(s.team_load_percent * 100) + '%', label: 'Carga equipo',    color: lClr },
+    { val: score,                                         label: 'Health Score',   color: hClr },
+    { val: overloaded,                                    label: 'Sobrecargados',  color: overloaded > 0 ? '#dc2626' : '#059669' },
+    { val: risks.critica || 0,                            label: 'Ríesgos críticos', color: risks.critica > 0 ? '#dc2626' : '#059669' },
+    { val: activos,                                       label: 'Proyectos activos', color: '#4f46e5' },
+    { val: s.estimated_free_manmonths.toFixed(1),         label: 'Man-months libres', color: '#374151' },
+  ].map(k => `
+    <div class="kpi-card">
+      <div class="kpi-value" style="color:${k.color}">${k.val}</div>
+      <div class="kpi-label">${k.label}</div>
+    </div>`).join('');
+}
+
+function renderTeam(cap) {
+  $('teamBody').innerHTML = [...cap.team]
+    .sort((a, b) => b.load_percent - a.load_percent)
+    .map(m => {
+      const lp   = m.load_percent;
+      const clr  = loadColor(lp);
+      const pct  = Math.min(lp * 100, 100);
+      const avail = m.capacity.available_hours;
+      const alloc = m.allocated_hours;
+      return `
+        <tr>
+          <td><strong>${m.name}</strong>${m.on_leave ? ' <span class="badge b-pausado">Licencia</span>' : ''}</td>
+          <td style="color:#6b7280">${m.role}</td>
+          <td>${avail.toFixed(0)}h</td>
+          <td>${alloc.toFixed(0)}h</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar-fill" style="width:${pct}%;background:${clr}"></div>
+            </div>
+          </td>
+          <td><strong style="color:${clr}">${Math.round(lp * 100)}%</strong>
+              <span style="font-size:10px;color:#9ca3af"> ${m.load_status}</span></td>
+        </tr>`;
+    }).join('');
+}
+
+function renderProjects(cap, projects) {
+  const order = { activo:0, pausado:1, planificado:2, completado:3 };
+  $('projBody').innerHTML = [...projects]
+    .sort((a, b) => (order[a.status] ?? 5) - (order[b.status] ?? 5))
+    .map(p => {
+      const done  = p.estimated_effort?.story_points_done  || 0;
+      const total = p.estimated_effort?.story_points_total || 0;
+      const prog  = pct(done, total);
+      const hasProgress = total > 0;
+      return `
+        <tr>
+          <td style="font-family:monospace;font-size:10px;color:#6b7280">${p.id}</td>
+          <td><strong>${p.name}</strong></td>
+          <td><span class="badge b-${p.type}">${p.type}</span></td>
+          <td><span class="badge b-${p.severity}">${p.severity}</span></td>
+          <td><span class="badge b-${p.status}">${p.status}</span></td>
+          <td>
+            ${hasProgress ? `
+              <div class="bar-wrap">
+                <div class="bar-fill" style="width:${prog}%;background:#4f46e5"></div>
+              </div>
+              <div style="font-size:10px;color:#9ca3af;margin-top:2px">${prog}% (${done}/${total} SP)</div>
+            ` : '<span style="color:#9ca3af;font-size:10px">Sin estimación</span>'}
+          </td>
+        </tr>`;
+    }).join('');
+}
+
+function renderActivity(git, jira) {
+  const gt = git?.metrics?.totals || {};
+  const jt = jira?.metrics?.totals || {};
+  $('activityStats').innerHTML = [
+    { val: gt.commits      || 0, label: 'Commits' },
+    { val: gt.pulls        || 0, label: 'Pull Requests' },
+    { val: gt.merged_prs   || 0, label: 'PRs Mergeados' },
+    { val: jt.issues       || 0, label: 'Issues Jira' },
+  ].map(s => `
+    <div class="stat-mini">
+      <div class="stat-mini-val">${s.val}</div>
+      <div class="stat-mini-label">${s.label}</div>
+    </div>`).join('');
+}
+
+function renderRisks(health) {
+  const risks = health.risks.slice(0, 10);
+  $('riskList').innerHTML = risks.length
+    ? risks.map(r => `
+        <div class="risk-item">
+          <div class="risk-sev rs-${r.severity}">${r.severity}</div>
+          <div class="risk-body">
+            <div class="risk-title">${r.title || r.type}</div>
+            <div class="risk-desc">${r.description}</div>
+            <div class="risk-reco">→ ${r.recommendation}</div>
+          </div>
+        </div>`).join('')
+    : '<p style="color:#6b7280;padding:12px">Sin riesgos detectados.</p>';
+}
+
+function renderSkills(skillsData) {
+  const skills = Object.values(skillsData.skills || {});
+  $('skillsGrid').innerHTML = skills
+    .sort((a, b) => b.coverage_percent - a.coverage_percent)
+    .map(s => {
+      const clr = s.coverage_percent >= 60 ? '#059669'
+                : s.coverage_percent >= 40 ? '#d97706' : '#dc2626';
+      return `
+        <div class="skill-card">
+          ${s.is_spof ? '<div class="skill-spof">⚠ SPOF</div>' : ''}
+          <div class="skill-name">${s.label || s.skill}</div>
+          <div class="skill-bar">
+            <div class="bar-wrap">
+              <div class="bar-fill" style="width:${s.coverage_percent}%;background:${clr}"></div>
+            </div>
+          </div>
+          <div class="skill-meta" style="color:${clr}">${s.coverage_percent}% · avg L${(s.avg_level||0).toFixed(1)}</div>
+        </div>`;
+    }).join('');
+}
+
+// ── Boot ──────────────────────────────────────────────────
+async function boot() {
+  const now = new Date().toLocaleString('es-MX', {
+    day:'2-digit', month:'long', year:'numeric',
+    hour:'2-digit', minute:'2-digit'
+  });
+  $('reportDate').textContent = now;
+  $('footerDate').textContent = `Generado: ${now}`;
+
+  try {
+    const [cap, health, skills, projects, git, jira] = await Promise.all([
+      fetchJSON('./data/team_capacity.json'),
+      fetchJSON('./data/team_health.json'),
+      fetchJSON('./data/skills_matrix.json'),
+      fetchJSON('./data/projects_raw.json').catch(() => null),
+      fetchJSON('./data/git_data.json').catch(() => null),
+      fetchJSON('./data/jira_data.json').catch(() => null),
+    ]);
+
+    const allProjects = projects?.projects || buildProjectsFromCapacity(cap);
+
+    renderBanner(cap.summary, $('banner'));
+    renderKPIs(cap, health);
+    renderTeam(cap);
+    renderProjects(cap, allProjects);
+    renderActivity(git, jira);
+    renderRisks(health);
+    renderSkills(skills);
+
+  } catch(e) {
+    console.error(e);
+    $('banner').className = 'banner banner-no';
+    $('banner').innerHTML = `
+      <div class="banner-icon">⚠️</div>
+      <div class="banner-text">
+        <div>Error cargando datos</div>
+        <div class="banner-sub">Ejecuta primero: <code>python run.py --skip-ai</code> y abre con <code>python serve_local.py</code></div>
+      </div>`;
+  }
+}
+
+function buildProjectsFromCapacity(cap) {
+  const seen = {}; const out = [];
+  for (const m of cap.team) {
+    for (const p of m.projects) {
+      if (!seen[p.project_id]) {
+        seen[p.project_id] = true;
+        out.push({ id: p.project_id, name: p.project_name, status:'activo',
+          severity:'media', type:'iac', devops_lead:'—',
+          start_date:'—', end_date:'—', estimated_effort:{} });
+      }
+    }
+  }
+  return out;
+}
+
+boot();
+</script>
+</body>
+</html>
