@@ -73,12 +73,12 @@ ACTIVITY_TEMPLATES = {
 
 
 def load_config():
-    with open(CONFIG_PATH) as f:
+    with open(CONFIG_PATH, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
 def load_team_capacity():
-    with open(OUTPUT_PATH / "team_capacity.json") as f:
+    with open(OUTPUT_PATH / "team_capacity.json", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -189,7 +189,7 @@ def run(project_type="iac", complexity="medio") -> dict:
 
     OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
     out_file = OUTPUT_PATH / "estimation_example.json"
-    with open(out_file, "w") as f:
+    with open(out_file, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     total  = estimation["totals"]["estimated_hours"]

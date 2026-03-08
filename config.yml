@@ -16,7 +16,7 @@ team:
   critical_threshold: 1.0        # Crítico si supera 100%
 
 jira:
-  enabled: false
+  enabled: true
   base_url: "https://yourorg.atlassian.net"
   project_keys: []               # Ejemplo: ["DEVOPS", "CLOUD"]
   # Las credenciales van en .env, nunca aquí

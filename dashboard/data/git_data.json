@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-08T06:41:31.538408",
+  "generated_at": "2026-03-08T22:24:33.054921",
   "mode": "mock",
   "total_commits": 55,
   "lookback_days": 30,
@@ -504,9 +504,9 @@
     "cmendoza": {
       "total_commits": 22,
       "repos": [
+        "infra-eks-platform",
         "helm-charts-core",
-        "security-policies",
-        "infra-eks-platform"
+        "security-policies"
       ],
       "commits_by_week": {
         "2026-03": 8,
@@ -523,9 +523,9 @@
     "lrodriguez": {
       "total_commits": 14,
       "repos": [
-        "helm-charts-core",
+        "infra-eks-platform",
         "github-actions-templates",
-        "infra-eks-platform"
+        "helm-charts-core"
       ],
       "commits_by_week": {
         "2026-03": 4,
@@ -556,8 +556,8 @@
     "rcastillo": {
       "total_commits": 11,
       "repos": [
-        "security-policies",
-        "github-actions-templates"
+        "github-actions-templates",
+        "security-policies"
       ],
       "commits_by_week": {
         "2026-02": 11

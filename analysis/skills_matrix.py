@@ -37,7 +37,7 @@ LEVEL_LABELS = {1: "Básico", 2: "Intermedio", 3: "Avanzado", 4: "Experto"}
 def run() -> dict:
     print("⚙️  Generando matriz de skills...")
 
-    with open(OUTPUT_PATH / "team_raw.json") as f:
+    with open(OUTPUT_PATH / "team_raw.json", encoding="utf-8") as f:
         team = json.load(f)["team"]
 
     skills_data = {}
@@ -100,7 +100,7 @@ def run() -> dict:
     }
 
     out_file = OUTPUT_PATH / "skills_matrix.json"
-    with open(out_file, "w") as f:
+    with open(out_file, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     spof_count = len(output["spof_skills"])

@@ -26,7 +26,7 @@ OUTPUT_PATH = Path(__file__).parent.parent / "output"
 
 
 def load_config() -> dict:
-    with open(CONFIG_PATH) as f:
+    with open(CONFIG_PATH, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
@@ -219,7 +219,7 @@ def run() -> dict:
 
     OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
     out_file = OUTPUT_PATH / "git_data.json"
-    with open(out_file, "w") as f:
+    with open(out_file, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False, default=str)
 
     print(f"  ✅ {len(commits)} commits de {len(by_author)} autores → {out_file}")

@@ -22,18 +22,18 @@ OUTPUT_PATH  = Path(__file__).parent.parent / "output"
 
 
 def load_config() -> dict:
-    with open(CONFIG_PATH) as f:
+    with open(CONFIG_PATH, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
 def load_projects() -> list[dict]:
-    with open(PROJECTS_PATH) as f:
+    with open(PROJECTS_PATH, encoding="utf-8") as f:
         return yaml.safe_load(f).get("projects", [])
 
 
 def load_team() -> list[dict]:
     team_file = OUTPUT_PATH / "team_raw.json"
-    with open(team_file) as f:
+    with open(team_file, encoding="utf-8") as f:
         return json.load(f)["team"]
 
 
@@ -157,7 +157,7 @@ def run() -> dict:
 
     OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
     out_file = OUTPUT_PATH / "team_capacity.json"
-    with open(out_file, "w") as f:
+    with open(out_file, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print(f"  ✅ Capacidad calculada → {out_file}")

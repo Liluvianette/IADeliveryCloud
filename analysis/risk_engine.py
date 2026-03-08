@@ -35,17 +35,17 @@ RISK_WEIGHTS = {
 
 
 def load_config():
-    with open(CONFIG_PATH) as f:
+    with open(CONFIG_PATH, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
 def load_projects():
-    with open(PROJECTS_PATH) as f:
+    with open(PROJECTS_PATH, encoding="utf-8") as f:
         return yaml.safe_load(f).get("projects", [])
 
 
 def load_capacity():
-    with open(OUTPUT_PATH / "team_capacity.json") as f:
+    with open(OUTPUT_PATH / "team_capacity.json", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -224,7 +224,7 @@ def run() -> dict:
 
     OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
     out_file = OUTPUT_PATH / "team_health.json"
-    with open(out_file, "w") as f:
+    with open(out_file, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print(f"  ✅ {len(risks)} riesgos detectados → {out_file}")

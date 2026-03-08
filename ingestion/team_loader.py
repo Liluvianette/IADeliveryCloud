@@ -16,12 +16,12 @@ OUTPUT_PATH = Path(__file__).parent.parent / "output"
 
 
 def load_config() -> dict:
-    with open(CONFIG_PATH, "r") as f:
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
 def load_team() -> list[dict]:
-    with open(TEAM_PATH, "r") as f:
+    with open(TEAM_PATH, "r", encoding="utf-8") as f:
         raw = yaml.safe_load(f)
     return raw.get("team", [])
 
@@ -109,7 +109,7 @@ def run() -> list[dict]:
 
     OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
     out_file = OUTPUT_PATH / "team_raw.json"
-    with open(out_file, "w") as f:
+    with open(out_file, "w", encoding="utf-8") as f:
         json.dump({
             "generated_at": datetime.utcnow().isoformat(),
             "total_members": len(team),
@@ -133,11 +133,11 @@ def export_projects_raw():
     proj_path = Path(__file__).parent.parent / "data" / "projects.yml"
     out_path  = Path(__file__).parent.parent / "output"
 
-    with open(proj_path) as f:
+    with open(proj_path, encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
     out_path.mkdir(exist_ok=True)
-    with open(out_path / "projects_raw.json", "w") as f:
+    with open(out_path / "projects_raw.json", "w", encoding="utf-8") as f:
         json.dump({
             "generated_at": datetime.utcnow().isoformat(),
             "projects": data.get("projects", [])
