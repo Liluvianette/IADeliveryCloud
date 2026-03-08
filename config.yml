@@ -22,7 +22,7 @@ jira:
   # Las credenciales van en .env, nunca aquí
 
 git:
-  enabled: false
+  enabled: true
   repos: []                      # Lista de repos a analizar
   lookback_days: 30
 
