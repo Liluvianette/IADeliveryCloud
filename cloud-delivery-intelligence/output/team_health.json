@@ -1,0 +1,254 @@
+{
+  "generated_at": "2026-03-08T05:56:33.490964",
+  "health_score": {
+    "score": 0,
+    "label": "crítico",
+    "total_risks": 28
+  },
+  "risks_by_severity": {
+    "critica": 6,
+    "alta": 0,
+    "media": 22,
+    "baja": 0
+  },
+  "total_risks": 28,
+  "risks": [
+    {
+      "type": "sobrecarga",
+      "severity": "critica",
+      "weight": 9,
+      "member": "Alejandro Martínez",
+      "load_percent": 1.518,
+      "description": "Alejandro Martínez tiene carga del 152% — supera capacidad real.",
+      "recommendation": "Reasignar tareas o posponer proyecto de menor severidad."
+    },
+    {
+      "type": "sobrecarga",
+      "severity": "critica",
+      "weight": 9,
+      "member": "Carolina Valencia",
+      "load_percent": 1.5,
+      "description": "Carolina Valencia tiene carga del 150% — supera capacidad real.",
+      "recommendation": "Reasignar tareas o posponer proyecto de menor severidad."
+    },
+    {
+      "type": "sobrecarga",
+      "severity": "critica",
+      "weight": 9,
+      "member": "Roberto Omena",
+      "load_percent": 1.319,
+      "description": "Roberto Omena tiene carga del 132% — supera capacidad real.",
+      "recommendation": "Reasignar tareas o posponer proyecto de menor severidad."
+    },
+    {
+      "type": "sobrecarga",
+      "severity": "critica",
+      "weight": 9,
+      "member": "Lucía Castro",
+      "load_percent": 1.912,
+      "description": "Lucía Castro tiene carga del 191% — supera capacidad real.",
+      "recommendation": "Reasignar tareas o posponer proyecto de menor severidad."
+    },
+    {
+      "type": "sobrecarga",
+      "severity": "critica",
+      "weight": 9,
+      "member": "Diego Quiroga",
+      "load_percent": 1.458,
+      "description": "Diego Quiroga tiene carga del 146% — supera capacidad real.",
+      "recommendation": "Reasignar tareas o posponer proyecto de menor severidad."
+    },
+    {
+      "type": "sobrecarga",
+      "severity": "critica",
+      "weight": 9,
+      "member": "Mariana Fuentes",
+      "load_percent": 1.0,
+      "description": "Mariana Fuentes tiene carga del 100% — supera capacidad real.",
+      "recommendation": "Reasignar tareas o posponer proyecto de menor severidad."
+    },
+    {
+      "type": "lider_sobrecargado",
+      "severity": "media",
+      "weight": 5,
+      "project": "Migración Plataforma Core a EKS",
+      "lead": "Alejandro Martínez",
+      "description": "El líder de 'Migración Plataforma Core a EKS' (Alejandro Martínez) está sobrecargado (152%).",
+      "recommendation": "Delegar responsabilidades de liderazgo o reducir carga del líder."
+    },
+    {
+      "type": "lider_sobrecargado",
+      "severity": "media",
+      "weight": 5,
+      "project": "Zero Trust & Hardening IAM",
+      "lead": "Carolina Valencia",
+      "description": "El líder de 'Zero Trust & Hardening IAM' (Carolina Valencia) está sobrecargado (150%).",
+      "recommendation": "Delegar responsabilidades de liderazgo o reducir carga del líder."
+    },
+    {
+      "type": "lider_sobrecargado",
+      "severity": "media",
+      "weight": 5,
+      "project": "Soporte Operacional L2 — Producción",
+      "lead": "Roberto Omena",
+      "description": "El líder de 'Soporte Operacional L2 — Producción' (Roberto Omena) está sobrecargado (132%).",
+      "recommendation": "Delegar responsabilidades de liderazgo o reducir carga del líder."
+    },
+    {
+      "type": "lider_sobrecargado",
+      "severity": "media",
+      "weight": 5,
+      "project": "Pipeline Factory — CI/CD Unificado",
+      "lead": "Roberto Omena",
+      "description": "El líder de 'Pipeline Factory — CI/CD Unificado' (Roberto Omena) está sobrecargado (132%).",
+      "recommendation": "Delegar responsabilidades de liderazgo o reducir carga del líder."
+    },
+    {
+      "type": "lider_sobrecargado",
+      "severity": "media",
+      "weight": 5,
+      "project": "Observabilidad Centralizada — Stack Completo",
+      "lead": "Lucía Castro",
+      "description": "El líder de 'Observabilidad Centralizada — Stack Completo' (Lucía Castro) está sobrecargado (191%).",
+      "recommendation": "Delegar responsabilidades de liderazgo o reducir carga del líder."
+    },
+    {
+      "type": "lider_sobrecargado",
+      "severity": "media",
+      "weight": 5,
+      "project": "Deuda Técnica — Terraform Upgrade v1.7",
+      "lead": "Lucía Castro",
+      "description": "El líder de 'Deuda Técnica — Terraform Upgrade v1.7' (Lucía Castro) está sobrecargado (191%).",
+      "recommendation": "Delegar responsabilidades de liderazgo o reducir carga del líder."
+    },
+    {
+      "type": "lider_sobrecargado",
+      "severity": "media",
+      "weight": 5,
+      "project": "Onboarding Técnico — Nuevo Equipo Fintech",
+      "lead": "Carolina Valencia",
+      "description": "El líder de 'Onboarding Técnico — Nuevo Equipo Fintech' (Carolina Valencia) está sobrecargado (150%).",
+      "recommendation": "Delegar responsabilidades de liderazgo o reducir carga del líder."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Migración Plataforma Core a EKS",
+      "description": "Dependencia con equipo de Redes para cambios de VPC (SLA lento)",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Migración Plataforma Core a EKS",
+      "description": "Karpenter aún en versión beta — posibles breaking changes",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Migración Plataforma Core a EKS",
+      "description": "Mariana Fuentes (apoyo) está de licencia hasta fin de mes",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Zero Trust & Hardening IAM",
+      "description": "Cambios en IAM pueden romper workloads en producción si no se prueban bien",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Zero Trust & Hardening IAM",
+      "description": "Requiere aprobación del CISO antes del cutover",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Zero Trust & Hardening IAM",
+      "description": "Diego Quiroga es junior — riesgo de errores en políticas críticas",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Soporte Operacional L2 — Producción",
+      "description": "Con Mariana de licencia, la rotación on-call queda con 4 personas",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Soporte Operacional L2 — Producción",
+      "description": "Ningún junior puede hacer guardia solo aún",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Pipeline Factory — CI/CD Unificado",
+      "description": "Resistencia de equipos de desarrollo a adoptar nuevo proceso estándar",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Pipeline Factory — CI/CD Unificado",
+      "description": "Diego Quiroga tiene 65% de carga total — riesgo de calidad en entregables",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Observabilidad Centralizada — Stack Completo",
+      "description": "Mariana de licencia bloquea 30% del trabajo de implementación",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Observabilidad Centralizada — Stack Completo",
+      "description": "Lucía Castro tiene 85% de carga total — riesgo de burnout",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Observabilidad Centralizada — Stack Completo",
+      "description": "Dependencia con PROJ-001 (EKS debe estar listo para instalar stack)",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Deuda Técnica — Terraform Upgrade v1.7",
+      "description": "Breaking changes en providers pueden impactar ambientes productivos",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    },
+    {
+      "type": "riesgo_proyecto",
+      "severity": "media",
+      "weight": 4,
+      "project": "Onboarding Técnico — Nuevo Equipo Fintech",
+      "description": "El equipo Fintech tiene fecha de lanzamiento agresiva — presión sobre DevOps",
+      "recommendation": "Revisar mitigación con el equipo en próxima retro."
+    }
+  ]
+}

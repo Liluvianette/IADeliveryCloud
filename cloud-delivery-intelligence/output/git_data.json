@@ -1,0 +1,591 @@
+{
+  "generated_at": "2026-03-08T05:56:33.416415",
+  "mode": "mock",
+  "total_commits": 55,
+  "lookback_days": 30,
+  "commits": [
+    {
+      "hash": "cm0000",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-03-08",
+      "message": "chore: update terraform provider versions",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "cm0001",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-03-01",
+      "message": "fix: node group taints corrected",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "lr0002",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-03-05",
+      "message": "fix: RBAC permissions for monitoring namespace",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "cm0003",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-18",
+      "message": "feat: implement spot instance support",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "cm0004",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-03-08",
+      "message": "feat: add cluster autoscaler config",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "cm0005",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-03-01",
+      "message": "fix: RBAC permissions for monitoring namespace",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "lr0006",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-03-08",
+      "message": "fix: RBAC permissions for monitoring namespace",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "cm0007",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-14",
+      "message": "fix: RBAC permissions for monitoring namespace",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "jm0008",
+      "email": "jmorales@example.com",
+      "author": "Jorge Morales",
+      "author_id": "jmorales",
+      "date": "2026-03-01",
+      "message": "feat: implement spot instance support",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "lr0009",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-02-28",
+      "message": "feat: add cluster autoscaler config",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "cm000a",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-14",
+      "message": "feat: implement spot instance support",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "jm000b",
+      "email": "jmorales@example.com",
+      "author": "Jorge Morales",
+      "author_id": "jmorales",
+      "date": "2026-02-28",
+      "message": "fix: node group taints corrected",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "cm000c",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-12",
+      "message": "chore: update terraform provider versions",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "cm000d",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-03-06",
+      "message": "feat: implement spot instance support",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "cm000e",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-25",
+      "message": "chore: update terraform provider versions",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "lr000f",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-02-28",
+      "message": "feat: add cluster autoscaler config",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "lr0010",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-02-22",
+      "message": "fix: RBAC permissions for monitoring namespace",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "cm0011",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-07",
+      "message": "feat: implement spot instance support",
+      "repo": "infra-eks-platform"
+    },
+    {
+      "hash": "lr0000",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-02-10",
+      "message": "chore: bump chart versions",
+      "repo": "helm-charts-core"
+    },
+    {
+      "hash": "lr0001",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-02-18",
+      "message": "feat: add values override for staging",
+      "repo": "helm-charts-core"
+    },
+    {
+      "hash": "cm0002",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-03-07",
+      "message": "chore: bump chart versions",
+      "repo": "helm-charts-core"
+    },
+    {
+      "hash": "cm0003",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-12",
+      "message": "fix: ingress annotations for ALB",
+      "repo": "helm-charts-core"
+    },
+    {
+      "hash": "cm0004",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-09",
+      "message": "feat: add values override for staging",
+      "repo": "helm-charts-core"
+    },
+    {
+      "hash": "cm0005",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-24",
+      "message": "fix: ingress annotations for ALB",
+      "repo": "helm-charts-core"
+    },
+    {
+      "hash": "lr0006",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-02-16",
+      "message": "fix: ingress annotations for ALB",
+      "repo": "helm-charts-core"
+    },
+    {
+      "hash": "cm0007",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-25",
+      "message": "fix: ingress annotations for ALB",
+      "repo": "helm-charts-core"
+    },
+    {
+      "hash": "cm0008",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-15",
+      "message": "fix: ingress annotations for ALB",
+      "repo": "helm-charts-core"
+    },
+    {
+      "hash": "rc0000",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-16",
+      "message": "feat: Python pipeline template v1",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "rc0001",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-16",
+      "message": "feat: add SAST scan step",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "rc0002",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-13",
+      "message": "feat: add SAST scan step",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "lr0003",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-02-22",
+      "message": "feat: Node.js pipeline draft",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "ap0004",
+      "email": "aperez@example.com",
+      "author": "Ana Pérez",
+      "author_id": "aperez",
+      "date": "2026-02-07",
+      "message": "chore: update actions/checkout to v4",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "lr0005",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-02-15",
+      "message": "fix: cache key collision on matrix builds",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "lr0006",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-03-01",
+      "message": "feat: Python pipeline template v1",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "ap0007",
+      "email": "aperez@example.com",
+      "author": "Ana Pérez",
+      "author_id": "aperez",
+      "date": "2026-02-24",
+      "message": "fix: cache key collision on matrix builds",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "lr0008",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-03-02",
+      "message": "chore: update actions/checkout to v4",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "rc0009",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-26",
+      "message": "feat: add SAST scan step",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "rc000a",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-21",
+      "message": "feat: Node.js pipeline draft",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "rc000b",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-22",
+      "message": "feat: add SAST scan step",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "ap000c",
+      "email": "aperez@example.com",
+      "author": "Ana Pérez",
+      "author_id": "aperez",
+      "date": "2026-03-04",
+      "message": "feat: add SAST scan step",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "rc000d",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-19",
+      "message": "chore: update actions/checkout to v4",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "ap000e",
+      "email": "aperez@example.com",
+      "author": "Ana Pérez",
+      "author_id": "aperez",
+      "date": "2026-02-13",
+      "message": "chore: update actions/checkout to v4",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "ap000f",
+      "email": "aperez@example.com",
+      "author": "Ana Pérez",
+      "author_id": "aperez",
+      "date": "2026-02-08",
+      "message": "chore: update actions/checkout to v4",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "ap0010",
+      "email": "aperez@example.com",
+      "author": "Ana Pérez",
+      "author_id": "aperez",
+      "date": "2026-02-25",
+      "message": "feat: add SAST scan step",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "lr0011",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-02-20",
+      "message": "feat: Node.js pipeline draft",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "lr0012",
+      "email": "lrodriguez@example.com",
+      "author": "Laura Rodríguez",
+      "author_id": "lrodriguez",
+      "date": "2026-02-12",
+      "message": "feat: Python pipeline template v1",
+      "repo": "github-actions-templates"
+    },
+    {
+      "hash": "rc0000",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-16",
+      "message": "feat: IAM policy least-privilege review",
+      "repo": "security-policies"
+    },
+    {
+      "hash": "cm0001",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-17",
+      "message": "feat: WAF managed rules - OWASP core",
+      "repo": "security-policies"
+    },
+    {
+      "hash": "cm0002",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-24",
+      "message": "docs: add compliance mapping NIST-800",
+      "repo": "security-policies"
+    },
+    {
+      "hash": "cm0003",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-02-19",
+      "message": "feat: WAF managed rules - OWASP core",
+      "repo": "security-policies"
+    },
+    {
+      "hash": "rc0004",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-15",
+      "message": "fix: overly permissive S3 bucket policy",
+      "repo": "security-policies"
+    },
+    {
+      "hash": "cm0005",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-03-05",
+      "message": "fix: overly permissive S3 bucket policy",
+      "repo": "security-policies"
+    },
+    {
+      "hash": "cm0006",
+      "email": "cmendoza@example.com",
+      "author": "Carlos Méndoza",
+      "author_id": "cmendoza",
+      "date": "2026-03-03",
+      "message": "docs: add compliance mapping NIST-800",
+      "repo": "security-policies"
+    },
+    {
+      "hash": "rc0007",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-13",
+      "message": "fix: overly permissive S3 bucket policy",
+      "repo": "security-policies"
+    },
+    {
+      "hash": "rc0008",
+      "email": "rcastillo@example.com",
+      "author": "Rodrigo Castillo",
+      "author_id": "rcastillo",
+      "date": "2026-02-20",
+      "message": "feat: WAF managed rules - OWASP core",
+      "repo": "security-policies"
+    }
+  ],
+  "by_author": {
+    "cmendoza": {
+      "total_commits": 22,
+      "repos": [
+        "helm-charts-core",
+        "security-policies",
+        "infra-eks-platform"
+      ],
+      "commits_by_week": {
+        "2026-03": 8,
+        "2026-02": 14
+      },
+      "recent_messages": [
+        "chore: update terraform provider versions",
+        "fix: node group taints corrected",
+        "feat: implement spot instance support",
+        "feat: add cluster autoscaler config",
+        "fix: RBAC permissions for monitoring namespace"
+      ]
+    },
+    "lrodriguez": {
+      "total_commits": 14,
+      "repos": [
+        "helm-charts-core",
+        "github-actions-templates",
+        "infra-eks-platform"
+      ],
+      "commits_by_week": {
+        "2026-03": 4,
+        "2026-02": 10
+      },
+      "recent_messages": [
+        "fix: RBAC permissions for monitoring namespace",
+        "fix: RBAC permissions for monitoring namespace",
+        "feat: add cluster autoscaler config",
+        "feat: add cluster autoscaler config",
+        "fix: RBAC permissions for monitoring namespace"
+      ]
+    },
+    "jmorales": {
+      "total_commits": 2,
+      "repos": [
+        "infra-eks-platform"
+      ],
+      "commits_by_week": {
+        "2026-03": 1,
+        "2026-02": 1
+      },
+      "recent_messages": [
+        "feat: implement spot instance support",
+        "fix: node group taints corrected"
+      ]
+    },
+    "rcastillo": {
+      "total_commits": 11,
+      "repos": [
+        "security-policies",
+        "github-actions-templates"
+      ],
+      "commits_by_week": {
+        "2026-02": 11
+      },
+      "recent_messages": [
+        "feat: Python pipeline template v1",
+        "feat: add SAST scan step",
+        "feat: add SAST scan step",
+        "feat: add SAST scan step",
+        "feat: Node.js pipeline draft"
+      ]
+    },
+    "aperez": {
+      "total_commits": 6,
+      "repos": [
+        "github-actions-templates"
+      ],
+      "commits_by_week": {
+        "2026-02": 5,
+        "2026-03": 1
+      },
+      "recent_messages": [
+        "chore: update actions/checkout to v4",
+        "fix: cache key collision on matrix builds",
+        "feat: add SAST scan step",
+        "chore: update actions/checkout to v4",
+        "chore: update actions/checkout to v4"
+      ]
+    }
+  }
+}

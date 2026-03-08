@@ -1,0 +1,41 @@
+# ============================================================
+# Cloud Delivery Intelligence Platform — Global Config
+# ============================================================
+
+platform:
+  name: "Cloud Delivery Intelligence"
+  version: "1.0.0"
+  timezone: "America/Mexico_City"
+  language: "es"
+
+team:
+  working_hours_per_day: 8
+  working_days_per_month: 20
+  capacity_buffer: 0.20          # 20% reservado para reuniones, overhead, etc.
+  overload_threshold: 0.85       # Alerta si carga supera 85%
+  critical_threshold: 1.0        # Crítico si supera 100%
+
+jira:
+  enabled: false
+  base_url: "https://yourorg.atlassian.net"
+  project_keys: []               # Ejemplo: ["DEVOPS", "CLOUD"]
+  # Las credenciales van en .env, nunca aquí
+
+git:
+  enabled: false
+  repos: []                      # Lista de repos a analizar
+  lookback_days: 30
+
+ai:
+  enabled: false
+  provider: "anthropic"          # anthropic | openai
+  model: "claude-opus-4-5"
+  # API key en .env, nunca aquí
+
+output:
+  path: "./output"
+  dashboard_path: "./dashboard"
+
+reports:
+  logo_path: null                # Ruta a logo para PDF (opcional)
+  company_name: "Tu Organización"

@@ -1,0 +1,22 @@
+# Cloud Delivery Intelligence Platform — Dependencies
+# Instalar con: pip install -r requirements.txt
+
+# Core
+pyyaml>=6.0
+python-dotenv>=1.0
+
+# Jira integration (opcional)
+jira>=3.5
+
+# HTTP (para GitHub API)
+requests>=2.31
+
+# AI
+anthropic>=0.25
+
+# PDF reports
+reportlab>=4.0
+weasyprint>=60.0
+
+# Dev tools
+pytest>=7.4

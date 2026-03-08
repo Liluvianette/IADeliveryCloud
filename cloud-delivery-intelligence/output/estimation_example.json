@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-03-08T05:56:33.497802",
+  "input": {
+    "project_type": "iac",
+    "complexity": "medio"
+  },
+  "estimation": {
+    "project_type": "iac",
+    "complexity": "medio",
+    "type_factor": 1.0,
+    "risk_factor": 1.15,
+    "activities": [
+      {
+        "activity": "Discovery técnico y análisis de requisitos",
+        "base_hours": 16,
+        "estimated_hours": 18.4,
+        "optimistic_hours": 13.8,
+        "pessimistic_hours": 24.8
+      },
+      {
+        "activity": "Diseño de arquitectura",
+        "base_hours": 24,
+        "estimated_hours": 27.6,
+        "optimistic_hours": 20.7,
+        "pessimistic_hours": 37.3
+      },
+      {
+        "activity": "Review de arquitectura (RFC)",
+        "base_hours": 8,
+        "estimated_hours": 9.2,
+        "optimistic_hours": 6.9,
+        "pessimistic_hours": 12.4
+      },
+      {
+        "activity": "Implementación IaC (Terraform/Ansible)",
+        "base_hours": 80,
+        "estimated_hours": 92.0,
+        "optimistic_hours": 69.0,
+        "pessimistic_hours": 124.2
+      },
+      {
+        "activity": "Configuración de pipelines CI/CD",
+        "base_hours": 24,
+        "estimated_hours": 27.6,
+        "optimistic_hours": 20.7,
+        "pessimistic_hours": 37.3
+      },
+      {
+        "activity": "Testing y validación en ambiente no-prod",
+        "base_hours": 16,
+        "estimated_hours": 18.4,
+        "optimistic_hours": 13.8,
+        "pessimistic_hours": 24.8
+      },
+      {
+        "activity": "Despliegue a producción + cutover",
+        "base_hours": 16,
+        "estimated_hours": 18.4,
+        "optimistic_hours": 13.8,
+        "pessimistic_hours": 24.8
+      },
+      {
+        "activity": "Documentación técnica",
+        "base_hours": 16,
+        "estimated_hours": 18.4,
+        "optimistic_hours": 13.8,
+        "pessimistic_hours": 24.8
+      },
+      {
+        "activity": "Handoff y knowledge transfer",
+        "base_hours": 8,
+        "estimated_hours": 9.2,
+        "optimistic_hours": 6.9,
+        "pessimistic_hours": 12.4
+      }
+    ],
+    "totals": {
+      "estimated_hours": 239.2,
+      "optimistic_hours": 179.4,
+      "pessimistic_hours": 322.8,
+      "man_months": 1.87,
+      "man_months_optimistic": 1.4,
+      "man_months_pessimistic": 2.52
+    }
+  },
+  "absorption": {
+    "can_absorb": false,
+    "free_hours_available": 0.0,
+    "hours_required": 239.2,
+    "shortfall_hours": 239.2,
+    "months_needed": 1.87,
+    "recommendation": "Faltan 239.2h. Se requiere contratar, extender plazos o reducir alcance."
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "generated_at": "2026-03-08T05:56:33.352964",
+  "total_members": 6,
+  "team": [
+    {
+      "id": "amartinez",
+      "name": "Alejandro Martínez",
+      "role": "Tech Lead Cloud",
+      "seniority": "senior",
+      "email": "amartinez@empresa.com",
+      "active": true,
+      "on_leave": false,
+      "capacity": {
+        "hours_per_month": 160,
+        "availability_percent": 70,
+        "available_hours": 89.6
+      },
+      "skills": {
+        "terraform": 4,
+        "kubernetes": 4,
+        "aws": 4,
+        "gcp": 3,
+        "azure": 2,
+        "docker": 4,
+        "python": 3,
+        "bash": 4,
+        "ci_cd": 4,
+        "observability": 4,
+        "security": 3,
+        "architecture": 4,
+        "git": 4,
+        "ansible": 3
+      },
+      "velocity": {
+        "avg_story_points_per_sprint": 10,
+        "avg_tasks_per_month": 7,
+        "historical_accuracy": 0.9
+      },
+      "notes": "Principal referente técnico del área. Revisa arquitecturas, desbloquea al equipo y coordina con stakeholders. Su tiempo es escaso — no asignar a tareas operativas.",
+      "allocated_hours": 0.0,
+      "free_hours": 89.6,
+      "load_percent": 0.0,
+      "projects": []
+    },
+    {
+      "id": "cvalencia",
+      "name": "Carolina Valencia",
+      "role": "Tech Lead DevSecOps",
+      "seniority": "senior",
+      "email": "cvalencia@empresa.com",
+      "active": true,
+      "on_leave": false,
+      "capacity": {
+        "hours_per_month": 160,
+        "availability_percent": 75,
+        "available_hours": 96.0
+      },
+      "skills": {
+        "terraform": 3,
+        "kubernetes": 3,
+        "aws": 4,
+        "gcp": 2,
+        "azure": 3,
+        "docker": 3,
+        "python": 4,
+        "bash": 3,
+        "ci_cd": 4,
+        "observability": 3,
+        "security": 4,
+        "architecture": 3,
+        "git": 4,
+        "ansible": 2
+      },
+      "velocity": {
+        "avg_story_points_per_sprint": 12,
+        "avg_tasks_per_month": 8,
+        "historical_accuracy": 0.88
+      },
+      "notes": "Referente en seguridad cloud y compliance. Única con expertise en IAM avanzado y auditoría. SPOF crítico en seguridad.",
+      "allocated_hours": 0.0,
+      "free_hours": 96.0,
+      "load_percent": 0.0,
+      "projects": []
+    },
+    {
+      "id": "romena",
+      "name": "Roberto Omena",
+      "role": "DevOps Engineer",
+      "seniority": "semi-senior",
+      "email": "romena@empresa.com",
+      "active": true,
+      "on_leave": false,
+      "capacity": {
+        "hours_per_month": 160,
+        "availability_percent": 90,
+        "available_hours": 115.2
+      },
+      "skills": {
+        "terraform": 3,
+        "kubernetes": 3,
+        "aws": 3,
+        "gcp": 2,
+        "azure": 1,
+        "docker": 3,
+        "python": 3,
+        "bash": 3,
+        "ci_cd": 4,
+        "observability": 2,
+        "security": 2,
+        "architecture": 2,
+        "git": 4,
+        "ansible": 3
+      },
+      "velocity": {
+        "avg_story_points_per_sprint": 14,
+        "avg_tasks_per_month": 10,
+        "historical_accuracy": 0.82
+      },
+      "notes": "Fuerte en CI/CD y automatización. Go-to person para pipelines. Trabajando en subir nivel en K8s.",
+      "allocated_hours": 0.0,
+      "free_hours": 115.2,
+      "load_percent": 0.0,
+      "projects": []
+    },
+    {
+      "id": "lcastro",
+      "name": "Lucía Castro",
+      "role": "DevOps Engineer",
+      "seniority": "semi-senior",
+      "email": "lcastro@empresa.com",
+      "active": true,
+      "on_leave": false,
+      "capacity": {
+        "hours_per_month": 160,
+        "availability_percent": 85,
+        "available_hours": 108.8
+      },
+      "skills": {
+        "terraform": 3,
+        "kubernetes": 2,
+        "aws": 2,
+        "gcp": 3,
+        "azure": 2,
+        "docker": 3,
+        "python": 2,
+        "bash": 3,
+        "ci_cd": 3,
+        "observability": 3,
+        "security": 2,
+        "architecture": 2,
+        "git": 3,
+        "ansible": 2
+      },
+      "velocity": {
+        "avg_story_points_per_sprint": 12,
+        "avg_tasks_per_month": 9,
+        "historical_accuracy": 0.79
+      },
+      "notes": "Especialista en GCP y observabilidad. Lidera dashboards de monitoreo. Candidata a Tech Lead próximo ciclo.",
+      "allocated_hours": 0.0,
+      "free_hours": 108.8,
+      "load_percent": 0.0,
+      "projects": []
+    },
+    {
+      "id": "dquiroga",
+      "name": "Diego Quiroga",
+      "role": "DevOps Engineer",
+      "seniority": "junior",
+      "email": "dquiroga@empresa.com",
+      "active": true,
+      "on_leave": false,
+      "capacity": {
+        "hours_per_month": 160,
+        "availability_percent": 90,
+        "available_hours": 115.2
+      },
+      "skills": {
+        "terraform": 2,
+        "kubernetes": 1,
+        "aws": 2,
+        "gcp": 1,
+        "azure": 2,
+        "docker": 2,
+        "python": 2,
+        "bash": 2,
+        "ci_cd": 2,
+        "observability": 1,
+        "security": 1,
+        "architecture": 1,
+        "git": 3,
+        "ansible": 1
+      },
+      "velocity": {
+        "avg_story_points_per_sprint": 7,
+        "avg_tasks_per_month": 5,
+        "historical_accuracy": 0.68
+      },
+      "notes": "Incorporado hace 4 meses. Buen ritmo de aprendizaje. Requiere supervisión en producción. Siempre asignar con un semi-senior o senior.",
+      "allocated_hours": 0.0,
+      "free_hours": 115.2,
+      "load_percent": 0.0,
+      "projects": []
+    },
+    {
+      "id": "mfuentes",
+      "name": "Mariana Fuentes",
+      "role": "Cloud Engineer",
+      "seniority": "semi-senior",
+      "email": "mfuentes@empresa.com",
+      "active": true,
+      "on_leave": true,
+      "capacity": {
+        "hours_per_month": 160,
+        "availability_percent": 80,
+        "available_hours": 0.0
+      },
+      "skills": {
+        "terraform": 3,
+        "kubernetes": 3,
+        "aws": 3,
+        "gcp": 2,
+        "azure": 3,
+        "docker": 3,
+        "python": 3,
+        "bash": 2,
+        "ci_cd": 3,
+        "observability": 2,
+        "security": 2,
+        "architecture": 3,
+        "git": 3,
+        "ansible": 2
+      },
+      "velocity": {
+        "avg_story_points_per_sprint": 13,
+        "avg_tasks_per_month": 9,
+        "historical_accuracy": 0.83
+      },
+      "notes": "Perfil balanceado AWS/Azure. Actualmente de licencia médica. Sus proyectos deben ser cubiertos temporalmente por el equipo.",
+      "allocated_hours": 0.0,
+      "free_hours": 0.0,
+      "load_percent": 0.0,
+      "projects": []
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+name: Generate & Deploy Dashboard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'analysis/**'
+      - 'ingestion/**'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install pyyaml python-dotenv
+
+      - name: Run pipeline
+        run: python run.py --skip-ai
+
+      - name: Commit generated data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/ dashboard/data/
+          git diff --staged --quiet || git commit -m "chore: refresh dashboard [skip ci]"
+          git push

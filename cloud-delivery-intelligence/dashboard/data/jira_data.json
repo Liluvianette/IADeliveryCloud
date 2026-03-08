@@ -1,0 +1,203 @@
+{
+  "issues": [
+    {
+      "key": "CLOUD-101",
+      "summary": "Diseñar arquitectura EKS",
+      "type": "Epic",
+      "status": "Done",
+      "assignee": "cmendoza",
+      "points": 13,
+      "parent": null,
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "CLOUD-102",
+      "summary": "Configurar node groups",
+      "type": "Story",
+      "status": "Done",
+      "assignee": "cmendoza",
+      "points": 8,
+      "parent": "CLOUD-101",
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "CLOUD-103",
+      "summary": "Implementar cluster autoscaler",
+      "type": "Story",
+      "status": "In Progress",
+      "assignee": "jmorales",
+      "points": 5,
+      "parent": "CLOUD-101",
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "CLOUD-104",
+      "summary": "Configurar Prometheus + Grafana",
+      "type": "Story",
+      "status": "In Progress",
+      "assignee": "jmorales",
+      "points": 8,
+      "parent": "CLOUD-101",
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "CLOUD-105",
+      "summary": "Setup Helm charts core apps",
+      "type": "Story",
+      "status": "To Do",
+      "assignee": "lrodriguez",
+      "points": 5,
+      "parent": "CLOUD-101",
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "DEVOPS-50",
+      "summary": "Pipeline template Python",
+      "type": "Story",
+      "status": "Done",
+      "assignee": "lrodriguez",
+      "points": 3,
+      "parent": null,
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "DEVOPS-51",
+      "summary": "Pipeline template Node.js",
+      "type": "Story",
+      "status": "In Progress",
+      "assignee": "aperez",
+      "points": 3,
+      "parent": null,
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "DEVOPS-52",
+      "summary": "Configurar SAST en pipelines",
+      "type": "Task",
+      "status": "To Do",
+      "assignee": "rcastillo",
+      "points": 5,
+      "parent": null,
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "SEC-10",
+      "summary": "Configurar AWS WAF rules",
+      "type": "Story",
+      "status": "In Progress",
+      "assignee": "rcastillo",
+      "points": 8,
+      "parent": null,
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "SEC-11",
+      "summary": "Revisar políticas IAM",
+      "type": "Story",
+      "status": "To Do",
+      "assignee": "rcastillo",
+      "points": 5,
+      "parent": null,
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "OPS-200",
+      "summary": "Incident - DB latency spike",
+      "type": "Bug",
+      "status": "Done",
+      "assignee": "jmorales",
+      "points": null,
+      "parent": null,
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    },
+    {
+      "key": "OPS-201",
+      "summary": "Incident - Memory leak en pod",
+      "type": "Bug",
+      "status": "Done",
+      "assignee": "jmorales",
+      "points": null,
+      "parent": null,
+      "created": "2026-01-22T05:56:33.406622",
+      "updated": "2026-03-06T05:56:33.406622"
+    }
+  ],
+  "worklogs": [
+    {
+      "issue_key": "CLOUD-102",
+      "author": "cmendoza",
+      "time_spent_sec": 14400,
+      "date": "2026-02-26T05:56:33.406622",
+      "comment": "Configuración inicial"
+    },
+    {
+      "issue_key": "CLOUD-103",
+      "author": "jmorales",
+      "time_spent_sec": 10800,
+      "date": "2026-02-28T05:56:33.406622",
+      "comment": ""
+    },
+    {
+      "issue_key": "CLOUD-104",
+      "author": "jmorales",
+      "time_spent_sec": 18000,
+      "date": "2026-03-03T05:56:33.406622",
+      "comment": "Dashboards iniciales"
+    },
+    {
+      "issue_key": "CLOUD-105",
+      "author": "lrodriguez",
+      "time_spent_sec": 7200,
+      "date": "2026-03-05T05:56:33.406622",
+      "comment": ""
+    },
+    {
+      "issue_key": "DEVOPS-50",
+      "author": "lrodriguez",
+      "time_spent_sec": 10800,
+      "date": "2026-02-24T05:56:33.406622",
+      "comment": "Template listo"
+    },
+    {
+      "issue_key": "DEVOPS-51",
+      "author": "aperez",
+      "time_spent_sec": 7200,
+      "date": "2026-03-04T05:56:33.406622",
+      "comment": ""
+    },
+    {
+      "issue_key": "SEC-10",
+      "author": "rcastillo",
+      "time_spent_sec": 21600,
+      "date": "2026-03-02T05:56:33.406622",
+      "comment": "Reglas WAF base"
+    },
+    {
+      "issue_key": "OPS-200",
+      "author": "jmorales",
+      "time_spent_sec": 5400,
+      "date": "2026-02-21T05:56:33.406622",
+      "comment": "Resolved - query slow"
+    },
+    {
+      "issue_key": "OPS-201",
+      "author": "jmorales",
+      "time_spent_sec": 3600,
+      "date": "2026-02-27T05:56:33.406622",
+      "comment": "Memory limit ajustado"
+    }
+  ],
+  "generated_at": "2026-03-08T05:56:33.406692",
+  "mode": "mock"
+}

@@ -1,0 +1,502 @@
+# ============================================================
+# Cloud Delivery Intelligence — Projects Data (DUMMY REALISTA)
+# ============================================================
+# 10 proyectos simultáneos: variedad de tipos, estados y severidades
+# Escenario real: Q1 sobrecargado, proyectos críticos + deuda técnica + soporte
+# Tipos:    soporte | iac | desarrollo | investigacion
+# Severidad: critica | alta | media | baja
+# Estado:   activo | pausado | completado | cancelado | planificado
+
+projects:
+
+  # ══════════════════════════════════════════════════════════
+  # PROYECTOS ACTIVOS (7)
+  # ══════════════════════════════════════════════════════════
+
+  - id: "PROJ-001"
+    name: "Migración Plataforma Core a EKS"
+    type: "iac"
+    severity: "critica"
+    status: "activo"
+    start_date: "2025-01-06"
+    end_date: "2025-06-30"
+    description: >
+      Migración de workloads legacy en EC2 a Amazon EKS.
+      Rediseño de networking (VPC, subnets, SGs), implementación de
+      cluster autoscaler, Karpenter y stack de observabilidad completo.
+    jira_project_key: "CLOUD"
+    git_repos:
+      - "infra-eks-core"
+      - "helm-charts-platform"
+
+    devops_lead: "amartinez"
+
+    team_assignments:
+      - member_id: "amartinez"
+        role: "Arquitecto / Tech Lead"
+        allocation_percent: 35
+
+      - member_id: "romena"
+        role: "Implementación IaC"
+        allocation_percent: 40
+
+      - member_id: "lcastro"
+        role: "Observabilidad y monitoreo"
+        allocation_percent: 30
+
+    required_skills:
+      - kubernetes
+      - terraform
+      - aws
+      - observability
+      - ci_cd
+
+    estimated_effort:
+      total_hours: 600
+      remaining_hours: 380
+      story_points_total: 144
+      story_points_done: 54
+
+    risks:
+      - "Dependencia con equipo de Redes para cambios de VPC (SLA lento)"
+      - "Karpenter aún en versión beta — posibles breaking changes"
+      - "Mariana Fuentes (apoyo) está de licencia hasta fin de mes"
+
+    notes: "Proyecto estratégico del año. Todos los demás proyectos de infraestructura dependen de este."
+
+  # ─────────────────────────────────────────────────────────
+
+  - id: "PROJ-002"
+    name: "Zero Trust & Hardening IAM"
+    type: "desarrollo"
+    severity: "critica"
+    status: "activo"
+    start_date: "2025-02-03"
+    end_date: "2025-04-30"
+    description: >
+      Implementación de políticas Zero Trust en AWS. Revisión completa de
+      roles y políticas IAM, habilitación de AWS Organizations SCPs,
+      despliegue de AWS IAM Identity Center y rotación de credenciales legacy.
+    jira_project_key: "SEC"
+    git_repos:
+      - "security-iam-policies"
+      - "scp-guardrails"
+
+    devops_lead: "cvalencia"
+
+    team_assignments:
+      - member_id: "cvalencia"
+        role: "Security Lead / Arquitecta"
+        allocation_percent: 45
+
+      - member_id: "amartinez"
+        role: "Revisión de arquitectura"
+        allocation_percent: 15
+
+      - member_id: "dquiroga"
+        role: "Soporte implementación"
+        allocation_percent: 25
+
+    required_skills:
+      - security
+      - aws
+      - terraform
+      - python
+
+    estimated_effort:
+      total_hours: 280
+      remaining_hours: 190
+      story_points_total: 72
+      story_points_done: 20
+
+    risks:
+      - "Cambios en IAM pueden romper workloads en producción si no se prueban bien"
+      - "Requiere aprobación del CISO antes del cutover"
+      - "Diego Quiroga es junior — riesgo de errores en políticas críticas"
+
+    notes: "Fecha límite fija por auditoría externa en mayo. No puede postergarse."
+
+  # ─────────────────────────────────────────────────────────
+
+  - id: "PROJ-003"
+    name: "Soporte Operacional L2 — Producción"
+    type: "soporte"
+    severity: "alta"
+    status: "activo"
+    start_date: "2025-01-01"
+    end_date: "2025-12-31"
+    description: >
+      Soporte continuo L2 para ambientes productivos.
+      Atención de incidents, on-call rotativo, hotfixes y
+      coordinación con equipos de desarrollo para resolución de problemas.
+    jira_project_key: "OPS"
+    git_repos: []
+
+    devops_lead: "romena"
+
+    team_assignments:
+      - member_id: "romena"
+        role: "SRE On-call Lead"
+        allocation_percent: 20
+
+      - member_id: "lcastro"
+        role: "On-call Observabilidad"
+        allocation_percent: 15
+
+      - member_id: "amartinez"
+        role: "Escalación L3"
+        allocation_percent: 10
+
+      - member_id: "cvalencia"
+        role: "Escalación Seguridad"
+        allocation_percent: 10
+
+    required_skills:
+      - observability
+      - aws
+      - kubernetes
+      - bash
+
+    estimated_effort:
+      total_hours: 1920
+      remaining_hours: 1440
+      story_points_total: 0
+      story_points_done: 0
+
+    risks:
+      - "Con Mariana de licencia, la rotación on-call queda con 4 personas"
+      - "Ningún junior puede hacer guardia solo aún"
+
+    notes: "Proyecto evergreen. Revisar rotación mensualmente. Diego no entra a on-call hasta Q2."
+
+  # ─────────────────────────────────────────────────────────
+
+  - id: "PROJ-004"
+    name: "Pipeline Factory — CI/CD Unificado"
+    type: "iac"
+    severity: "alta"
+    status: "activo"
+    start_date: "2025-02-17"
+    end_date: "2025-05-15"
+    description: >
+      Diseño e implementación de una librería estándar de pipelines GitHub Actions
+      para todos los equipos de desarrollo. Incluye templates para Python, Node.js,
+      Java y Go, con SAST, DAST, container scanning y deploy automatizado.
+    jira_project_key: "DEVOPS"
+    git_repos:
+      - "pipeline-factory"
+      - "github-actions-library"
+
+    devops_lead: "romena"
+
+    team_assignments:
+      - member_id: "romena"
+        role: "Lead Engineer"
+        allocation_percent: 35
+
+      - member_id: "dquiroga"
+        role: "Implementación templates"
+        allocation_percent: 40
+
+      - member_id: "cvalencia"
+        role: "Security gates en pipelines"
+        allocation_percent: 15
+
+    required_skills:
+      - ci_cd
+      - git
+      - docker
+      - security
+      - python
+
+    estimated_effort:
+      total_hours: 260
+      remaining_hours: 160
+      story_points_total: 64
+      story_points_done: 26
+
+    risks:
+      - "Resistencia de equipos de desarrollo a adoptar nuevo proceso estándar"
+      - "Diego Quiroga tiene 65% de carga total — riesgo de calidad en entregables"
+
+    notes: "Buen proyecto de aprendizaje para Diego. Roberto debe hacer revisión de código de cada PR."
+
+  # ─────────────────────────────────────────────────────────
+
+  - id: "PROJ-005"
+    name: "Observabilidad Centralizada — Stack Completo"
+    type: "iac"
+    severity: "alta"
+    status: "activo"
+    start_date: "2025-01-20"
+    end_date: "2025-04-30"
+    description: >
+      Implementación de stack de observabilidad unificado: Prometheus + Grafana en EKS,
+      Loki para logs centralizados, alertas en PagerDuty y dashboards ejecutivos.
+      Migración desde soluciones ad-hoc de cada equipo.
+    jira_project_key: "OBS"
+    git_repos:
+      - "observability-stack"
+      - "grafana-dashboards"
+
+    devops_lead: "lcastro"
+
+    team_assignments:
+      - member_id: "lcastro"
+        role: "Lead — Observabilidad"
+        allocation_percent: 40
+
+      - member_id: "amartinez"
+        role: "Arquitectura y revisión"
+        allocation_percent: 10
+
+      - member_id: "mfuentes"
+        role: "Implementación dashboards"
+        allocation_percent: 30     # ← está de licencia, sus tareas están bloqueadas
+
+    required_skills:
+      - observability
+      - kubernetes
+      - ci_cd
+      - python
+
+    estimated_effort:
+      total_hours: 220
+      remaining_hours: 130
+      story_points_total: 56
+      story_points_done: 22
+
+    risks:
+      - "Mariana de licencia bloquea 30% del trabajo de implementación"
+      - "Lucía Castro tiene 85% de carga total — riesgo de burnout"
+      - "Dependencia con PROJ-001 (EKS debe estar listo para instalar stack)"
+
+    notes: "Lucía está absorbiendo trabajo de Mariana. Revisar si se puede pausar parte del scope."
+
+  # ─────────────────────────────────────────────────────────
+
+  - id: "PROJ-006"
+    name: "Deuda Técnica — Terraform Upgrade v1.7"
+    type: "iac"
+    severity: "media"
+    status: "activo"
+    start_date: "2025-03-03"
+    end_date: "2025-03-28"
+    description: >
+      Actualización de todos los módulos Terraform de v1.4 a v1.7.
+      Refactoring de módulos legacy, corrección de deprecaciones y
+      alineación con nuevo estándar de naming del equipo.
+    jira_project_key: "TECH"
+    git_repos:
+      - "terraform-modules"
+
+    devops_lead: "lcastro"
+
+    team_assignments:
+      - member_id: "lcastro"
+        role: "Lead técnico"
+        allocation_percent: 15
+
+      - member_id: "dquiroga"
+        role: "Implementación y testing"
+        allocation_percent: 20
+
+    required_skills:
+      - terraform
+      - git
+
+    estimated_effort:
+      total_hours: 80
+      remaining_hours: 60
+      story_points_total: 20
+      story_points_done: 4
+
+    risks:
+      - "Breaking changes en providers pueden impactar ambientes productivos"
+
+    notes: "Proyecto de deuda técnica. Si hay presión de capacidad, puede pausarse hasta Q2."
+
+  # ─────────────────────────────────────────────────────────
+
+  - id: "PROJ-007"
+    name: "Onboarding Técnico — Nuevo Equipo Fintech"
+    type: "soporte"
+    severity: "media"
+    status: "activo"
+    start_date: "2025-02-24"
+    end_date: "2025-04-11"
+    description: >
+      Soporte de onboarding para nuevo equipo de desarrollo Fintech (8 personas).
+      Setup de repositorios, accesos, pipelines iniciales, ambientes de desarrollo
+      y capacitación en prácticas DevOps del área.
+    jira_project_key: "ONB"
+    git_repos:
+      - "fintech-infra-bootstrap"
+
+    devops_lead: "cvalencia"
+
+    team_assignments:
+      - member_id: "cvalencia"
+        role: "Lead Onboarding / Seguridad"
+        allocation_percent: 20
+
+      - member_id: "dquiroga"
+        role: "Setup repos y accesos"
+        allocation_percent: 20
+
+    required_skills:
+      - ci_cd
+      - security
+      - git
+      - aws
+
+    estimated_effort:
+      total_hours: 120
+      remaining_hours: 70
+      story_points_total: 30
+      story_points_done: 12
+
+    risks:
+      - "El equipo Fintech tiene fecha de lanzamiento agresiva — presión sobre DevOps"
+
+    notes: "Carolina tiene 90% de carga entre este proyecto y PROJ-002. Monitorear de cerca."
+
+  # ══════════════════════════════════════════════════════════
+  # PROYECTOS PAUSADOS (1)
+  # ══════════════════════════════════════════════════════════
+
+  - id: "PROJ-008"
+    name: "Multi-Cloud DR — Azure Backup Region"
+    type: "iac"
+    severity: "alta"
+    status: "pausado"
+    start_date: "2025-01-13"
+    end_date: "2025-07-31"
+    description: >
+      Implementación de región de disaster recovery en Azure para workloads críticos.
+      Incluye replicación de datos, failover automatizado y runbooks de recuperación.
+    jira_project_key: "DR"
+    git_repos:
+      - "azure-dr-infra"
+
+    devops_lead: "mfuentes"
+
+    team_assignments:
+      - member_id: "mfuentes"
+        role: "Lead Azure / DR"
+        allocation_percent: 0     # ← pausado por licencia de Mariana
+      - member_id: "amartinez"
+        role: "Revisión arquitectura"
+        allocation_percent: 0
+
+    required_skills:
+      - azure
+      - terraform
+      - architecture
+
+    estimated_effort:
+      total_hours: 400
+      remaining_hours: 380
+      story_points_total: 100
+      story_points_done: 5
+
+    risks:
+      - "Proyecto pausado indefinidamente por licencia de Mariana Fuentes"
+      - "Nadie más en el equipo tiene expertise Azure al nivel requerido"
+      - "Si se reanuda, necesita re-planning completo"
+
+    notes: "Pausado el 2025-03-10 por licencia médica. Reanudar cuando Mariana regrese. SPOF claro."
+
+  # ══════════════════════════════════════════════════════════
+  # PROYECTOS PLANIFICADOS (1)
+  # ══════════════════════════════════════════════════════════
+
+  - id: "PROJ-009"
+    name: "Platform Engineering — Portal de Desarrolladores"
+    type: "investigacion"
+    severity: "media"
+    status: "planificado"
+    start_date: "2025-05-05"
+    end_date: "2025-08-29"
+    description: >
+      POC de Backstage.io como portal de desarrolladores. Evaluación de plugins
+      core, integración con GitHub, Jira y PagerDuty. Decisión de adopción en Q3.
+    jira_project_key: null
+    git_repos: []
+
+    devops_lead: "amartinez"
+
+    team_assignments:
+      - member_id: "amartinez"
+        role: "Sponsor técnico"
+        allocation_percent: 15
+
+      - member_id: "lcastro"
+        role: "Lead investigación"
+        allocation_percent: 30
+
+      - member_id: "mfuentes"
+        role: "Desarrollo plugins"
+        allocation_percent: 25
+
+    required_skills:
+      - kubernetes
+      - ci_cd
+      - python
+      - architecture
+
+    estimated_effort:
+      total_hours: 200
+      remaining_hours: 200
+      story_points_total: 0
+      story_points_done: 0
+
+    risks:
+      - "No iniciar hasta que PROJ-001 supere el 70% de completitud"
+      - "Lucía y Mariana ya tienen carga alta — revisar capacidad en Mayo"
+
+    notes: "Iniciar solo en Q2 cuando bajen proyectos de infraestructura crítica. No asignar horas aún."
+
+  # ══════════════════════════════════════════════════════════
+  # PROYECTOS COMPLETADOS (1)
+  # ══════════════════════════════════════════════════════════
+
+  - id: "PROJ-010"
+    name: "Migración DNS — Route 53 Consolidado"
+    type: "iac"
+    severity: "media"
+    status: "completado"
+    start_date: "2024-11-04"
+    end_date: "2025-02-14"
+    description: >
+      Consolidación de zonas DNS dispersas en múltiples cuentas AWS hacia
+      Route 53 centralizado. Implementación de DNS firewall y logging de queries.
+    jira_project_key: "DNS"
+    git_repos:
+      - "route53-consolidation"
+
+    devops_lead: "romena"
+
+    team_assignments:
+      - member_id: "romena"
+        role: "Lead implementación"
+        allocation_percent: 0     # completado
+
+      - member_id: "cvalencia"
+        role: "Security review"
+        allocation_percent: 0
+
+    required_skills:
+      - aws
+      - terraform
+      - security
+
+    estimated_effort:
+      total_hours: 160
+      remaining_hours: 0
+      story_points_total: 40
+      story_points_done: 40
+
+    risks: []
+
+    notes: "Completado en tiempo y forma. Referencia para futuros proyectos de networking. Documentación disponible en Confluence."

@@ -1,0 +1,230 @@
+# ============================================================
+# Cloud Delivery Intelligence — Team Data (DUMMY REALISTA)
+# ============================================================
+# Equipo: 2 Líderes Técnicos + 4 DevOps/Cloud Engineers
+# Escenario: Q1 bajo presión, 10 proyectos simultáneos, 1 persona de licencia
+# Niveles de skill: 1=Básico, 2=Intermedio, 3=Avanzado, 4=Experto
+
+team:
+
+  # ── LÍDERES TÉCNICOS ──────────────────────────────────────
+
+  - id: "amartinez"
+    name: "Alejandro Martínez"
+    role: "Tech Lead Cloud"
+    seniority: "senior"
+    email: "amartinez@empresa.com"
+    active: true
+
+    capacity:
+      hours_per_month: 160
+      availability_percent: 70   # 30% en reuniones, planificación, 1:1s, roadmap
+      on_leave: false
+      leave_dates: []
+
+    skills:
+      terraform:       4
+      kubernetes:      4
+      aws:             4
+      gcp:             3
+      azure:           2
+      docker:          4
+      python:          3
+      bash:            4
+      ci_cd:           4
+      observability:   4
+      security:        3
+      architecture:    4
+      git:             4
+      ansible:         3
+
+    velocity:
+      avg_story_points_per_sprint: 10
+      avg_tasks_per_month: 7
+      historical_accuracy: 0.90
+
+    notes: "Principal referente técnico del área. Revisa arquitecturas, desbloquea al equipo y coordina con stakeholders. Su tiempo es escaso — no asignar a tareas operativas."
+
+  - id: "cvalencia"
+    name: "Carolina Valencia"
+    role: "Tech Lead DevSecOps"
+    seniority: "senior"
+    email: "cvalencia@empresa.com"
+    active: true
+
+    capacity:
+      hours_per_month: 160
+      availability_percent: 75
+      on_leave: false
+      leave_dates: []
+
+    skills:
+      terraform:       3
+      kubernetes:      3
+      aws:             4
+      gcp:             2
+      azure:           3
+      docker:          3
+      python:          4
+      bash:            3
+      ci_cd:           4
+      observability:   3
+      security:        4
+      architecture:    3
+      git:             4
+      ansible:         2
+
+    velocity:
+      avg_story_points_per_sprint: 12
+      avg_tasks_per_month: 8
+      historical_accuracy: 0.88
+
+    notes: "Referente en seguridad cloud y compliance. Única con expertise en IAM avanzado y auditoría. SPOF crítico en seguridad."
+
+  # ── DEVOPS / CLOUD ENGINEERS ──────────────────────────────
+
+  - id: "romena"
+    name: "Roberto Omena"
+    role: "DevOps Engineer"
+    seniority: "semi-senior"
+    email: "romena@empresa.com"
+    active: true
+
+    capacity:
+      hours_per_month: 160
+      availability_percent: 90
+      on_leave: false
+      leave_dates: []
+
+    skills:
+      terraform:       3
+      kubernetes:      3
+      aws:             3
+      gcp:             2
+      azure:           1
+      docker:          3
+      python:          3
+      bash:            3
+      ci_cd:           4
+      observability:   2
+      security:        2
+      architecture:    2
+      git:             4
+      ansible:         3
+
+    velocity:
+      avg_story_points_per_sprint: 14
+      avg_tasks_per_month: 10
+      historical_accuracy: 0.82
+
+    notes: "Fuerte en CI/CD y automatización. Go-to person para pipelines. Trabajando en subir nivel en K8s."
+
+  - id: "lcastro"
+    name: "Lucía Castro"
+    role: "DevOps Engineer"
+    seniority: "semi-senior"
+    email: "lcastro@empresa.com"
+    active: true
+
+    capacity:
+      hours_per_month: 160
+      availability_percent: 85
+      on_leave: false
+      leave_dates: []
+
+    skills:
+      terraform:       3
+      kubernetes:      2
+      aws:             2
+      gcp:             3
+      azure:           2
+      docker:          3
+      python:          2
+      bash:            3
+      ci_cd:           3
+      observability:   3
+      security:        2
+      architecture:    2
+      git:             3
+      ansible:         2
+
+    velocity:
+      avg_story_points_per_sprint: 12
+      avg_tasks_per_month: 9
+      historical_accuracy: 0.79
+
+    notes: "Especialista en GCP y observabilidad. Lidera dashboards de monitoreo. Candidata a Tech Lead próximo ciclo."
+
+  - id: "dquiroga"
+    name: "Diego Quiroga"
+    role: "DevOps Engineer"
+    seniority: "junior"
+    email: "dquiroga@empresa.com"
+    active: true
+
+    capacity:
+      hours_per_month: 160
+      availability_percent: 90
+      on_leave: false
+      leave_dates: []
+
+    skills:
+      terraform:       2
+      kubernetes:      1
+      aws:             2
+      gcp:             1
+      azure:           2
+      docker:          2
+      python:          2
+      bash:            2
+      ci_cd:           2
+      observability:   1
+      security:        1
+      architecture:    1
+      git:             3
+      ansible:         1
+
+    velocity:
+      avg_story_points_per_sprint: 7
+      avg_tasks_per_month: 5
+      historical_accuracy: 0.68
+
+    notes: "Incorporado hace 4 meses. Buen ritmo de aprendizaje. Requiere supervisión en producción. Siempre asignar con un semi-senior o senior."
+
+  - id: "mfuentes"
+    name: "Mariana Fuentes"
+    role: "Cloud Engineer"
+    seniority: "semi-senior"
+    email: "mfuentes@empresa.com"
+    active: true
+
+    capacity:
+      hours_per_month: 160
+      availability_percent: 80
+      on_leave: true
+      leave_dates:
+        - start: "2025-03-10"
+          end:   "2025-03-21"
+
+    skills:
+      terraform:       3
+      kubernetes:      3
+      aws:             3
+      gcp:             2
+      azure:           3
+      docker:          3
+      python:          3
+      bash:            2
+      ci_cd:           3
+      observability:   2
+      security:        2
+      architecture:    3
+      git:             3
+      ansible:         2
+
+    velocity:
+      avg_story_points_per_sprint: 13
+      avg_tasks_per_month: 9
+      historical_accuracy: 0.83
+
+    notes: "Perfil balanceado AWS/Azure. Actualmente de licencia médica. Sus proyectos deben ser cubiertos temporalmente por el equipo."
