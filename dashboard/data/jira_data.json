@@ -8,8 +8,8 @@
       "assignee": "cmendoza",
       "points": 13,
       "parent": null,
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "CLOUD-102",
@@ -19,8 +19,8 @@
       "assignee": "cmendoza",
       "points": 8,
       "parent": "CLOUD-101",
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "CLOUD-103",
@@ -30,8 +30,8 @@
       "assignee": "jmorales",
       "points": 5,
       "parent": "CLOUD-101",
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "CLOUD-104",
@@ -41,8 +41,8 @@
       "assignee": "jmorales",
       "points": 8,
       "parent": "CLOUD-101",
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "CLOUD-105",
@@ -52,8 +52,8 @@
       "assignee": "lrodriguez",
       "points": 5,
       "parent": "CLOUD-101",
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "DEVOPS-50",
@@ -63,8 +63,8 @@
       "assignee": "lrodriguez",
       "points": 3,
       "parent": null,
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "DEVOPS-51",
@@ -74,8 +74,8 @@
       "assignee": "aperez",
       "points": 3,
       "parent": null,
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "DEVOPS-52",
@@ -85,8 +85,8 @@
       "assignee": "rcastillo",
       "points": 5,
       "parent": null,
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "SEC-10",
@@ -96,8 +96,8 @@
       "assignee": "rcastillo",
       "points": 8,
       "parent": null,
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "SEC-11",
@@ -107,8 +107,8 @@
       "assignee": "rcastillo",
       "points": 5,
       "parent": null,
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "OPS-200",
@@ -118,8 +118,8 @@
       "assignee": "jmorales",
       "points": null,
       "parent": null,
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     },
     {
       "key": "OPS-201",
@@ -129,8 +129,8 @@
       "assignee": "jmorales",
       "points": null,
       "parent": null,
-      "created": "2026-01-22T05:56:33.406622",
-      "updated": "2026-03-06T05:56:33.406622"
+      "created": "2026-01-22T06:41:31.531407",
+      "updated": "2026-03-06T06:41:31.531407"
     }
   ],
   "worklogs": [
@@ -138,66 +138,66 @@
       "issue_key": "CLOUD-102",
       "author": "cmendoza",
       "time_spent_sec": 14400,
-      "date": "2026-02-26T05:56:33.406622",
+      "date": "2026-02-26T06:41:31.531407",
       "comment": "Configuración inicial"
     },
     {
       "issue_key": "CLOUD-103",
       "author": "jmorales",
       "time_spent_sec": 10800,
-      "date": "2026-02-28T05:56:33.406622",
+      "date": "2026-02-28T06:41:31.531407",
       "comment": ""
     },
     {
       "issue_key": "CLOUD-104",
       "author": "jmorales",
       "time_spent_sec": 18000,
-      "date": "2026-03-03T05:56:33.406622",
+      "date": "2026-03-03T06:41:31.531407",
       "comment": "Dashboards iniciales"
     },
     {
       "issue_key": "CLOUD-105",
       "author": "lrodriguez",
       "time_spent_sec": 7200,
-      "date": "2026-03-05T05:56:33.406622",
+      "date": "2026-03-05T06:41:31.531407",
       "comment": ""
     },
     {
       "issue_key": "DEVOPS-50",
       "author": "lrodriguez",
       "time_spent_sec": 10800,
-      "date": "2026-02-24T05:56:33.406622",
+      "date": "2026-02-24T06:41:31.531407",
       "comment": "Template listo"
     },
     {
       "issue_key": "DEVOPS-51",
       "author": "aperez",
       "time_spent_sec": 7200,
-      "date": "2026-03-04T05:56:33.406622",
+      "date": "2026-03-04T06:41:31.531407",
       "comment": ""
     },
     {
       "issue_key": "SEC-10",
       "author": "rcastillo",
       "time_spent_sec": 21600,
-      "date": "2026-03-02T05:56:33.406622",
+      "date": "2026-03-02T06:41:31.531407",
       "comment": "Reglas WAF base"
     },
     {
       "issue_key": "OPS-200",
       "author": "jmorales",
       "time_spent_sec": 5400,
-      "date": "2026-02-21T05:56:33.406622",
+      "date": "2026-02-21T06:41:31.531407",
       "comment": "Resolved - query slow"
     },
     {
       "issue_key": "OPS-201",
       "author": "jmorales",
       "time_spent_sec": 3600,
-      "date": "2026-02-27T05:56:33.406622",
+      "date": "2026-02-27T06:41:31.531407",
       "comment": "Memory limit ajustado"
     }
   ],
-  "generated_at": "2026-03-08T05:56:33.406692",
+  "generated_at": "2026-03-08T06:41:31.531463",
   "mode": "mock"
 }
