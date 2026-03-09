@@ -1,173 +1,256 @@
-# 🤖 AGENT CONTEXT — Cloud Delivery Intelligence Platform
-
-> Pega este archivo completo al inicio de cualquier sesión con Claude, GitHub Copilot
-> u otro asistente IA para que entienda el proyecto desde el primer mensaje.
-> Actualizar la sección "Estado actual" antes de cada sesión de trabajo.
+# AGENT_CONTEXT — Cloud Delivery Intelligence Platform
+> Pega este archivo al inicio de cualquier sesión con Claude en VS Code para retomar sin perder contexto.
+> Última actualización: 2026-03-08
 
 ---
 
-## PROMPT DE CONTEXTO (copiar y pegar completo)
+## ¿Qué es este proyecto?
+
+Herramienta interna para una Tech Lead de DevOps. Visualiza capacidad del equipo, detecta riesgos, analiza carga y estima esfuerzo de nuevos proyectos.
+
+**Arquitectura:** 100% estática — Python local genera JSONs → GitHub Pages sirve el dashboard. Sin servidor, sin base de datos.
+
+---
+
+## Repositorio y accesos
+
+| Dato | Valor |
+|---|---|
+| Repo | https://github.com/Liluvianette/IADeliveryCloud |
+| GitHub Pages | pendiente (GitHub Enterprise) |
+| Jira | https://liluvianette.atlassian.net / liluvianette@gmail.com |
+| Stack | Python 3.14, YAML, JSON, HTML/JS, Chart.js |
+
+---
+
+## Estructura de archivos
 
 ```
-Actúa como Principal Cloud Architect, Staff Software Engineer y DevOps Lead.
-
-Estás ayudándome a construir y evolucionar una herramienta llamada:
-"Cloud Delivery Intelligence Platform"
-
-## QUÉ ES ESTE SISTEMA
-
-Un dashboard inteligente que permite a un Tech Lead visualizar, analizar y tomar
-decisiones sobre la capacidad real de un equipo DevOps cloud.
-
-Principio técnico: datos crudos → Python scripts → JSONs → dashboard estático en GitHub Pages.
-Sin servidores. Sin base de datos. Vive 100% en GitHub.
-
-## REPOSITORIO
-
-GitHub: https://github.com/Liluvianette/IADeliveryCloud
-GitHub Pages: https://liluvianettes.pocs
-Stack: Python 3.11, YAML, JSON, HTML+JS vanilla, Chart.js, GitHub Actions
-
-## ESTRUCTURA DE CARPETAS
-
 IADeliveryCloud/
-├── data/team.yml              ← equipo: roles, skills (1-4), capacidad, velocidad
-├── data/projects.yml          ← proyectos: estado, asignaciones, % dedicación
-├── data/discovery.md          ← input para análisis de nuevos proyectos con IA
-├── config.yml                 ← flags: jira.enabled, git.enabled, ai.enabled
-├── run.py                     ← orquestador maestro: python run.py --skip-ai
-├── ingestion/team_loader.py   ← carga y valida team.yml
-├── ingestion/jira_ingest.py   ← Jira API (modo mock si jira.enabled=false)
-├── ingestion/git_ingest.py    ← GitHub API (modo mock si git.enabled=false)
-├── analysis/capacity_engine.py ← calcula carga real por persona
-├── analysis/risk_engine.py    ← detecta SPOFs, sobrecargas, riesgos
-├── analysis/skills_matrix.py  ← cobertura de habilidades del equipo
-├── analysis/estimation_engine.py ← estima horas y man-months
-├── ai/discovery_analyzer.py   ← analiza discovery.md con Claude API
-├── dashboard/index.html       ← frontend dark mode, Chart.js, 6 KPIs
-├── dashboard/data/*.json      ← JSONs copiados aquí por run.py para Pages
-└── output/*.json              ← JSONs generados (team_capacity, team_health, etc.)
-
-## MODELO DE DATOS CLAVE
-
-team.yml por persona:
-  id, name, role, seniority (junior/semi-senior/senior)
-  capacity: hours_per_month, availability_percent, on_leave
-  skills: terraform/kubernetes/aws/gcp/azure/docker/python/bash/
-          ci_cd/observability/security/architecture/git/ansible  (nivel 1-4)
-  velocity: avg_story_points_per_sprint, avg_tasks_per_month, historical_accuracy
-
-projects.yml por proyecto:
-  id, name, type (iac/desarrollo/soporte/investigacion)
-  severity (critica/alta/media/baja), status (activo/pausado/planificado/completado)
-  devops_lead (id de team.yml)
-  team_assignments: [{member_id, role, allocation_percent}]
-  estimated_effort: {total_hours, remaining_hours, story_points_total, story_points_done}
-
-## LÓGICA DE CAPACIDAD
-
-available_hours = hours_per_month × (availability_percent/100) × (1 - 0.20 buffer)
-allocated_hours = suma de (allocation_percent/100 × 160) por cada proyecto activo/planificado
-load_percent    = allocated_hours / available_hours
-load_status     = bajo(<30%) | normal(30-60%) | cargado(60-85%) | sobrecargado(85-100%) | critico(>100%)
-health_score    = 100 - suma_de_pesos_de_riesgos  (0=crítico, 100=saludable)
-
-## ESTADO ACTUAL DEL PROYECTO
-
-FASE 1 ✅ Arquitectura diseñada
-FASE 2 ✅ Modelo de datos con datos dummy realistas (6 personas, 10 proyectos)
-FASE 3 ✅ Motores de análisis funcionando (capacity, risk, skills, estimation)
-FASE 4 ⚠️  Dashboard funcional, GitHub Pages en proceso de configuración
-FASE 5 ⏳ Pendiente: Jira real, Git real, Discovery IA real, PDF ejecutivo
-
-PENDIENTE INMEDIATO:
-- [ ] Confirmar GitHub Pages funcionando en https://liluvianettes.pocs
-- [ ] Reporte ejecutivo PDF (reports/executive_report.py)
-- [ ] Conectar Jira real (.env con JIRA_TOKEN)
-- [ ] Conectar GitHub API (.env con GITHUB_TOKEN)
-- [ ] AI discovery analyzer (.env con ANTHROPIC_API_KEY)
-- [ ] project_classifier.py (FASE 5)
-
-## REGLAS DE TRABAJO
-
-1. NUNCA construir todo en un solo paso — dividir en componentes pequeños
-2. Siempre explicar la decisión arquitectónica antes de generar código
-3. Generar código listo para ejecutar, sin pseudocódigo
-4. Los scripts deben funcionar en modo mock (sin APIs) y modo real (con .env)
-5. Respetar la estructura de carpetas existente
-6. Los JSONs en /output son la fuente de verdad — /dashboard/data/ es una copia
-7. run.py es el único punto de entrada — no crear scripts alternativos
-8. Nunca hardcodear credenciales — siempre usar .env + python-dotenv
-
-## CONTEXTO DE NEGOCIO
-
-- Usuario: Tech Lead de equipo DevOps cloud
-- Problema que resuelve: visibilidad real de capacidad, riesgos y habilidades del equipo
-- No reemplaza Jira — es una capa de inteligencia encima de los datos
-- Usado inicialmente solo por el Tech Lead (uso personal/interno)
-- Decisión clave que debe soportar: ¿puede el equipo aceptar un nuevo proyecto?
-
-## CUANDO TE PIDA AYUDA
-
-Siempre dime:
-- En qué FASE estamos
-- Qué vamos a construir antes de escribir código
-- Si detectas riesgos o puedes simplificar algo, dímelo
-- Si algo requiere IA, sugiere el prompt reutilizable
-
-¿Entendido? Esperando instrucciones.
+├── .env                     ← NUNCA commitear
+├── config.yml               ← jira/git/ai enabled flags
+├── run.py                   ← orquestador principal
+├── serve_local.py           ← python serve_local.py → localhost:8080
+├── jira_diagnostico.py
+├── data/
+│   ├── team.yml
+│   ├── projects.yml
+│   └── discovery.md
+├── ingestion/
+│   ├── team_loader.py
+│   ├── jira_ingest.py       ← GET /rest/api/3/search/jql
+│   └── git_ingest.py        ← GitHub API v3
+├── analysis/
+│   ├── capacity_engine.py   → output/team_capacity.json
+│   ├── risk_engine.py       → output/team_health.json
+│   ├── skills_matrix.py     → output/skills_matrix.json
+│   └── estimation_engine.py
+├── ai/
+│   ├── discovery_analyzer.py  ← modo mock
+│   └── project_classifier.py  ← clasificador por reglas/keywords
+├── agents/                  ← 4 agentes de análisis
+│   ├── base_agent.py        ← clase base
+│   ├── tech_lead.py         ← viabilidad de proyecto nuevo
+│   ├── capacity_analyst.py  ← redistribución de carga
+│   ├── risk_officer.py      ← mitigación de riesgos
+│   └── estimator.py         ← estimación con fases + YAML
+├── dashboard/
+│   ├── index.html           ← dashboard dark-mode
+│   ├── report.html          ← reporte ejecutivo HTML→PDF
+│   └── data/*.json
+└── output/*.json            ← fuente de verdad (generados por run.py)
 ```
 
 ---
 
-## Cómo usar este archivo
+## Comandos
 
-### Al inicio de cada sesión con Claude:
-1. Abre una conversación nueva
-2. Pega el bloque entre los triple backticks de arriba
-3. Actualiza la sección `ESTADO ACTUAL` con lo que completaste
-4. Luego haz tu pregunta normal
+```bash
+# Siempre primero — genera los JSONs
+python run.py --skip-ai
 
-### Al inicio de cada sesión con GitHub Copilot Chat:
-1. Abre Copilot Chat en VSCode
-2. Pega el prompt completo
-3. Copilot tendrá contexto de toda la arquitectura
+# Dashboard y reporte
+python serve_local.py      # localhost:8080 y localhost:8080/report.html
 
-### Actualizar el estado:
-Cuando completes algo, cambia el emoji en `PENDIENTE INMEDIATO`:
-```
-- [x] GitHub Pages funcionando  ← completado
-- [ ] Reporte ejecutivo PDF      ← pendiente
+# Clasificador
+python ai/project_classifier.py --text "descripción" --title "Nombre"
+
+# Agentes individuales (requieren output/*.json)
+python agents/tech_lead.py --project "Nombre" --hours 200 --skills kubernetes,terraform
+python agents/capacity_analyst.py
+python agents/risk_officer.py --severity critica,alta
+python agents/estimator.py                                  # interactivo
+python agents/estimator.py --quick "Nombre" --type iac --complexity alto --team 3
+
+# Orquestador consolidado (requiere output/*.json)
+python run_agents.py                                        # capacity + risk + tech_lead
+python run_agents.py --quick "Nombre" --type iac            # los 4 agentes (estimator rápido)
+python run_agents.py --with-estimator                       # los 4 agentes (estimator interactivo)
+python run_agents.py --agent capacity                       # solo 1 agente
+python run_agents.py --agent risk --severity critica,alta
+python run_agents.py --agent tech_lead --project "X" --hours 200 --skills k8s,tf
+# → genera output/agents_report.json
 ```
 
 ---
 
-## Prompts de Referencia por Tarea
+## .env
 
-### Para continuar desarrollo:
 ```
-[pegar AGENT_CONTEXT.md completo]
-Estamos en FASE 5. Quiero construir el reporte ejecutivo PDF.
-Explícame qué vamos a construir antes de generar código.
-```
-
-### Para debug:
-```
-[pegar AGENT_CONTEXT.md completo]
-Tengo este error al ejecutar run.py:
-[pegar el error]
+JIRA_URL=https://liluvianette.atlassian.net
+JIRA_EMAIL=liluvianette@gmail.com
+JIRA_TOKEN=<token>
+GITHUB_TOKEN=<token>
+ANTHROPIC_API_KEY=       # fase futura Bedrock
 ```
 
-### Para analizar un nuevo proyecto:
-```
-[pegar AGENT_CONTEXT.md completo]
-Actualicé data/discovery.md con un nuevo proyecto.
-Analiza el discovery y dime si el equipo puede absorberlo.
+---
+
+## config.yml actual
+
+```yaml
+jira:
+  enabled: true
+  base_url: "https://liluvianette.atlassian.net"
+  project_keys: []   # vacío = auto-descubre
+  lookback_days: 30
+git:
+  enabled: true
+  repos: []          # vacío = auto-descubre
+  lookback_days: 30
+ai:
+  enabled: false
 ```
 
-### Para calibrar datos del equipo:
+---
+
+## Equipo (datos dummy — reemplazar con reales)
+
+| ID | Nombre | Rol | Seniority | Disponibilidad |
+|---|---|---|---|---|
+| amartinez | Alejandro Martínez | Tech Lead Cloud | Senior | 70% |
+| cvalencia | Carolina Valencia | Tech Lead DevSecOps | Senior | 75% |
+| romena | Roberto Omena | DevOps Engineer | Semi-senior | 90% |
+| lcastro | Lucía Castro | DevOps Engineer | Semi-senior | 85% |
+| dquiroga | Diego Quiroga | DevOps Engineer | Junior | 90% |
+| mfuentes | Mariana Fuentes | Cloud Engineer | Semi-senior | 80% (licencia) |
+
+**Estado dummy:** 171% carga · Health 0/100 · 28 riesgos. Intencional para probar todos los escenarios.
+
+---
+
+## Arquitectura de agentes
+
+```python
+# Todos heredan BaseAgent
+class MiAgente(BaseAgent):
+    def run(self, **kwargs) -> dict:
+        self.load_all()   # carga output/*.json
+        # lógica propia...
+        return self.build_result(findings, recommendations, verdict, priority_actions)
+
+# Contrato de salida uniforme
+{
+  "agent":            "nombre",
+  "verdict":          "VIABLE | NO VIABLE | CONDICIONAL | CRÍTICO | MODERADO | SALUDABLE | ...",
+  "findings":         [{ "severity": "critica|alta|media|baja|info", "title": "...", "detail": "..." }],
+  "recommendations":  ["..."],
+  "priority_actions": [{ "urgency": "inmediata|esta semana|este mes", "action": "...", "owner": "..." }],
+  "ai_prompt":        "prompt completo listo para Bedrock/Claude — ya incluye todos los datos del equipo"
+}
 ```
-[pegar AGENT_CONTEXT.md completo]
-Quiero ajustar la disponibilidad de [nombre] porque está tomando
-vacaciones del [fecha] al [fecha]. ¿Cómo actualizo el YAML?
+
+### Tech Lead Reviewer
+- Evalúa si el equipo puede aceptar un proyecto nuevo
+- Veredictos: VIABLE · CONDICIONAL · NO VIABLE
+- Analiza: carga, skills, miembros disponibles, health score, déficit de horas
+
+### Capacity Analyst
+- Detecta desequilibrios y propone redistribución concreta
+- Veredictos: SALUDABLE · MODERADO · CRÍTICO
+- Analiza: sobrecargados (+100%), sub-utilizados (-50%), licencias, reasignaciones posibles
+
+### Risk Officer
+- Profundiza en riesgos y genera plan de mitigación
+- Veredictos: BAJO RIESGO · MODERADO · ALTO RIESGO
+- Analiza: riesgos por severidad, patrones recurrentes, SPOFs, estrategia por tipo
+
+### Estimator
+- Estimación detallada con breakdown por fases
+- Veredictos: VIABLE · MODERADO · ALTO RIESGO
+- Modificadores: legacy +35%, nueva tecnología +30%, compliance +25%, multi-ambiente +15%...
+- Salida: horas, man-months, SPs, duración, fases, YAML listo para projects.yml
+
+---
+
+## Decisiones técnicas
+
+| Decisión | Razón |
+|---|---|
+| `encoding="utf-8"` en todo open() | Windows cp1252 rompía acentos en YAML |
+| Jira: GET /rest/api/3/search/jql | /search GET → 410 · POST /issue/search → 405 |
+| Jira auth: /mypermissions | /myself → 401 en Jira free |
+| GitHub: sin param `type` | Exclusivo con `affiliation` → 422 |
+| `python -m pip` | Python 3.14 Windows lo requiere |
+| Reporte: HTML→PDF | reportlab tenía problemas de layout; HTML+CSS más confiable |
+| Agentes sin IA externa | Determinístico, sin internet, auditable |
+| `ai_prompt` en cada agente | Listo para Bedrock — cero cambios en lógica |
+
+---
+
+## Roadmap
+
+| Fase | Estado |
+|---|---|
+| 1–4: Arquitectura, Data, Engines, Dashboard | ✅ |
+| 5A: Jira real | ✅ |
+| 5B: GitHub API real | ✅ |
+| 5C: Reporte HTML→PDF | ✅ |
+| 5D: Project Classifier | ✅ |
+| 6: Agentes (TechLead, Capacity, Risk, Estimator) | ✅ (probados 2026-03-08) |
+| 7: AWS Bedrock IA | 🔒 on hold |
+| 8: Datos reales del equipo | ⏳ |
+| 9: GitHub Pages en GitHub Enterprise | ⏳ |
+| 10: run_agents.py orquestador consolidado | ✅ (2026-03-08) |
+| 10B: Agentes integrados en run.py Paso 10 + report.html | ✅ (2026-03-08) |
+
+---
+
+## Fase 7 — Cómo conectar Bedrock (cuando llegue el momento)
+
+Agregar en `base_agent.py`:
+
+```python
+import boto3, json
+
+def ask_bedrock(self, prompt: str) -> str:
+    client = boto3.client("bedrock-runtime", region_name="us-east-1")
+    body = json.dumps({
+        "anthropic_version": "bedrock-2023-05-31",
+        "max_tokens": 2000,
+        "messages": [{"role": "user", "content": prompt}]
+    })
+    resp = client.invoke_model(
+        modelId="anthropic.claude-3-sonnet-20240229-v1:0",
+        body=body
+    )
+    return json.loads(resp["body"].read())["content"][0]["text"]
 ```
+
+En cada agente, al final de `run()`:
+```python
+if config.get("ai", {}).get("enabled"):
+    result["ai_analysis"] = self.ask_bedrock(result["ai_prompt"])
+```
+
+**El `ai_prompt` ya está construido con todos los datos del equipo. Cero cambios en la lógica de análisis.**
+
+---
+
+## Notas importantes
+
+- Jira de prueba: 0 issues, pero conexión verificada y funcionando
+- GitHub: encontró `Liluvianette/IADeliveryCloud`, 8 commits, 2 autores, 0 PRs
+- Si los agentes dan error → primero `python run.py --skip-ai`
+- En Windows: usar `python` (no `python3`) y `python -m pip` (no `pip`)
+- El `report.html` para PDF: A4 vertical · márgenes mínimos · activar gráficos de fondo

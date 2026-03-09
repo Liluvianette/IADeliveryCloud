@@ -1,0 +1,541 @@
+{
+  "generated_at": "2026-03-09T00:03:46.496226",
+  "verdicts": {
+    "capacity": "CRÍTICO",
+    "risk": "ALTO RIESGO",
+    "tech_lead": "NO VIABLE"
+  },
+  "results": {
+    "capacity": {
+      "agent": "capacity_analyst",
+      "role": "Capacity Analyst",
+      "timestamp": "2026-03-08T18:03:46.486912",
+      "verdict": "CRÍTICO",
+      "findings": [
+        {
+          "severity": "critica",
+          "title": "Sobrecarga severa del equipo (171%)",
+          "detail": "5 de 6 personas superan el 100% de carga. Riesgo alto de burnout, errores y abandono."
+        },
+        {
+          "severity": "critica",
+          "title": "Alejandro Martínez sobrecargado al 152%",
+          "detail": "Tiene 136h asignadas sobre 90h disponibles (exceso: 46h). Proyectos principales: PROJ-001 (35%), PROJ-002 (15%)."
+        },
+        {
+          "severity": "critica",
+          "title": "Carolina Valencia sobrecargado al 150%",
+          "detail": "Tiene 144h asignadas sobre 96h disponibles (exceso: 48h). Proyectos principales: PROJ-002 (45%), PROJ-007 (20%)."
+        },
+        {
+          "severity": "critica",
+          "title": "Roberto Omena sobrecargado al 132%",
+          "detail": "Tiene 152h asignadas sobre 115h disponibles (exceso: 37h). Proyectos principales: PROJ-001 (40%), PROJ-004 (35%)."
+        },
+        {
+          "severity": "critica",
+          "title": "Lucía Castro sobrecargado al 191%",
+          "detail": "Tiene 208h asignadas sobre 109h disponibles (exceso: 99h). Proyectos principales: PROJ-005 (40%), PROJ-001 (30%)."
+        },
+        {
+          "severity": "critica",
+          "title": "Diego Quiroga sobrecargado al 146%",
+          "detail": "Tiene 168h asignadas sobre 115h disponibles (exceso: 53h). Proyectos principales: PROJ-004 (40%), PROJ-002 (25%)."
+        },
+        {
+          "severity": "media",
+          "title": "1 persona(s) de licencia: Mariana Fuentes",
+          "detail": "Su carga asignada debe estar cubierta por el resto del equipo."
+        }
+      ],
+      "recommendations": [
+        "Considerar contratación de 1 recurso temporal para reducir presión en los próximos 2 meses.",
+        "Revisar que los proyectos de personas en licencia tienen sustituto definido."
+      ],
+      "priority_actions": [
+        {
+          "urgency": "este mes",
+          "action": "Abrir requisición de recurso temporal / consultor DevOps",
+          "owner": "Manager"
+        },
+        {
+          "urgency": "inmediata",
+          "action": "Confirmar cobertura de proyectos de personas en licencia",
+          "owner": "Tech Lead"
+        }
+      ],
+      "overloaded_count": 5,
+      "underloaded_count": 0,
+      "on_leave_count": 1,
+      "redistribution": [],
+      "team_load_pct": 170.7,
+      "free_manmonths": 0,
+      "ai_prompt": "Actúa como Capacity Planning Manager con experiencia en equipos DevOps de alto rendimiento.\nAnaliza la distribución de carga del equipo y propón una redistribución óptima.\n\nEstado del equipo:\n- Carga promedio: 171%\n- Sobrecargados: 5 personas\n- Sub-utilizados: 0 personas\n- En licencia: 1 personas\n- Man-months libres: 0.0\n\nDetalle por persona:\n  - Alejandro Martínez (Tech Lead Cloud): 152% carga, 0h libres\n  - Carolina Valencia (Tech Lead DevSecOps): 150% carga, 0h libres\n  - Roberto Omena (DevOps Engineer): 132% carga, 0h libres\n  - Lucía Castro (DevOps Engineer): 191% carga, 0h libres\n  - Diego Quiroga (DevOps Engineer): 146% carga, 0h libres\n  - Mariana Fuentes (Cloud Engineer): 100% carga, 0h libres\n\nProporciona:\n1. Diagnóstico de la distribución actual (¿es sostenible?)\n2. Plan concreto de redistribución (quién cede qué, a quién)\n3. Proyectos candidatos para pausar o reducir scope\n4. Recomendaciones para prevenir burnout en las personas sobrecargadas\n5. Acciones para las próximas 2 semanas"
+    },
+    "risk": {
+      "agent": "risk_officer",
+      "role": "Risk Officer",
+      "timestamp": "2026-03-08T18:03:46.491769",
+      "verdict": "ALTO RIESGO",
+      "findings": [
+        {
+          "severity": "critica",
+          "title": "Panorama de riesgos: 28 detectados",
+          "detail": "🔴 6 críticos  🟠 0 altos  🟡 22 medios  🟢 0 bajos. Health Score actual: 0/100."
+        },
+        {
+          "severity": "critica",
+          "title": "sobrecarga",
+          "detail": "Alejandro Martínez tiene carga del 152% — supera capacidad real. → Reasignar tareas o posponer proyecto de menor severidad."
+        },
+        {
+          "severity": "critica",
+          "title": "sobrecarga",
+          "detail": "Carolina Valencia tiene carga del 150% — supera capacidad real. → Reasignar tareas o posponer proyecto de menor severidad."
+        },
+        {
+          "severity": "critica",
+          "title": "sobrecarga",
+          "detail": "Roberto Omena tiene carga del 132% — supera capacidad real. → Reasignar tareas o posponer proyecto de menor severidad."
+        },
+        {
+          "severity": "critica",
+          "title": "sobrecarga",
+          "detail": "Lucía Castro tiene carga del 191% — supera capacidad real. → Reasignar tareas o posponer proyecto de menor severidad."
+        },
+        {
+          "severity": "critica",
+          "title": "sobrecarga",
+          "detail": "Diego Quiroga tiene carga del 146% — supera capacidad real. → Reasignar tareas o posponer proyecto de menor severidad."
+        },
+        {
+          "severity": "critica",
+          "title": "sobrecarga",
+          "detail": "Mariana Fuentes tiene carga del 100% — supera capacidad real. → Reasignar tareas o posponer proyecto de menor severidad."
+        },
+        {
+          "severity": "media",
+          "title": "lider_sobrecargado",
+          "detail": "El líder de 'Migración Plataforma Core a EKS' (Alejandro Martínez) está sobrecargado (152%). → Delegar responsabilidades de liderazgo o reducir carga del líder."
+        },
+        {
+          "severity": "media",
+          "title": "lider_sobrecargado",
+          "detail": "El líder de 'Zero Trust & Hardening IAM' (Carolina Valencia) está sobrecargado (150%). → Delegar responsabilidades de liderazgo o reducir carga del líder."
+        },
+        {
+          "severity": "media",
+          "title": "lider_sobrecargado",
+          "detail": "El líder de 'Soporte Operacional L2 — Producción' (Roberto Omena) está sobrecargado (132%). → Delegar responsabilidades de liderazgo o reducir carga del líder."
+        },
+        {
+          "severity": "media",
+          "title": "lider_sobrecargado",
+          "detail": "El líder de 'Pipeline Factory — CI/CD Unificado' (Roberto Omena) está sobrecargado (132%). → Delegar responsabilidades de liderazgo o reducir carga del líder."
+        },
+        {
+          "severity": "media",
+          "title": "lider_sobrecargado",
+          "detail": "El líder de 'Observabilidad Centralizada — Stack Completo' (Lucía Castro) está sobrecargado (191%). → Delegar responsabilidades de liderazgo o reducir carga del líder."
+        },
+        {
+          "severity": "media",
+          "title": "lider_sobrecargado",
+          "detail": "El líder de 'Deuda Técnica — Terraform Upgrade v1.7' (Lucía Castro) está sobrecargado (191%). → Delegar responsabilidades de liderazgo o reducir carga del líder."
+        },
+        {
+          "severity": "media",
+          "title": "lider_sobrecargado",
+          "detail": "El líder de 'Onboarding Técnico — Nuevo Equipo Fintech' (Carolina Valencia) está sobrecargado (150%). → Delegar responsabilidades de liderazgo o reducir carga del líder."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Dependencia con equipo de Redes para cambios de VPC (SLA lento) → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Karpenter aún en versión beta — posibles breaking changes → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Mariana Fuentes (apoyo) está de licencia hasta fin de mes → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Cambios en IAM pueden romper workloads en producción si no se prueban bien → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Requiere aprobación del CISO antes del cutover → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Diego Quiroga es junior — riesgo de errores en políticas críticas → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Con Mariana de licencia, la rotación on-call queda con 4 personas → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Ningún junior puede hacer guardia solo aún → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Resistencia de equipos de desarrollo a adoptar nuevo proceso estándar → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Diego Quiroga tiene 65% de carga total — riesgo de calidad en entregables → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Mariana de licencia bloquea 30% del trabajo de implementación → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Lucía Castro tiene 85% de carga total — riesgo de burnout → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Dependencia con PROJ-001 (EKS debe estar listo para instalar stack) → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "Breaking changes en providers pueden impactar ambientes productivos → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "media",
+          "title": "riesgo_proyecto",
+          "detail": "El equipo Fintech tiene fecha de lanzamiento agresiva — presión sobre DevOps → Revisar mitigación con el equipo en próxima retro."
+        },
+        {
+          "severity": "alta",
+          "title": "Patrón detectado: 15 riesgos del tipo 'riesgo_proyecto'",
+          "detail": "La concentración de riesgos del mismo tipo indica un problema estructural, no incidentes aislados. Requiere intervención sistémica."
+        }
+      ],
+      "recommendations": [
+        "El tipo de riesgo 'riesgo_proyecto' es recurrente — abordar la causa raíz en lugar de mitigar síntomas uno a uno.",
+        "Con 3+ riesgos críticos simultáneos, convocar una sesión de war room esta semana con todo el equipo para priorizar y asignar owners.",
+        "Health Score por debajo de 30 — comunicar situación a management y bloquear nuevos proyectos hasta subir a 50+."
+      ],
+      "priority_actions": [
+        {
+          "urgency": "inmediata",
+          "action": "War room de riesgos — priorizar los top 3 críticos",
+          "owner": "Tech Lead + Manager"
+        },
+        {
+          "urgency": "esta semana",
+          "action": "Briefing a management sobre estado crítico del equipo",
+          "owner": "Tech Lead"
+        },
+        {
+          "urgency": "inmediata",
+          "action": "[sobrecarga] Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos acti",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "urgency": "inmediata",
+          "action": "[sobrecarga] Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos acti",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "urgency": "inmediata",
+          "action": "[sobrecarga] Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos acti",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "urgency": "inmediata",
+          "action": "[sobrecarga] Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos acti",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "urgency": "inmediata",
+          "action": "[sobrecarga] Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos acti",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "urgency": "inmediata",
+          "action": "[sobrecarga] Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos acti",
+          "owner": "Manager + Tech Lead"
+        }
+      ],
+      "total_risks": 28,
+      "critical_count": 6,
+      "health_score": 0,
+      "mitigation_plan": [
+        {
+          "risk": "sobrecarga",
+          "severity": "critica",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~3 días (urgente)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "sobrecarga",
+          "severity": "critica",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~3 días (urgente)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "sobrecarga",
+          "severity": "critica",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~3 días (urgente)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "sobrecarga",
+          "severity": "critica",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~3 días (urgente)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "sobrecarga",
+          "severity": "critica",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~3 días (urgente)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "sobrecarga",
+          "severity": "critica",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~3 días (urgente)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "lider_sobrecargado",
+          "severity": "media",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~14 días (planificado)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "lider_sobrecargado",
+          "severity": "media",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~14 días (planificado)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "lider_sobrecargado",
+          "severity": "media",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~14 días (planificado)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "lider_sobrecargado",
+          "severity": "media",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~14 días (planificado)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "lider_sobrecargado",
+          "severity": "media",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~14 días (planificado)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "lider_sobrecargado",
+          "severity": "media",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~14 días (planificado)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "lider_sobrecargado",
+          "severity": "media",
+          "strategy": "Redistribuir carga o contratar recurso temporal. Revisar scope de proyectos activos.",
+          "effort": "~14 días (planificado)",
+          "owner": "Manager + Tech Lead"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        },
+        {
+          "risk": "riesgo_proyecto",
+          "severity": "media",
+          "strategy": "Analizar causa raíz. Definir owner y fecha de resolución en próxima reunión.",
+          "effort": "~14 días (planificado)",
+          "owner": "Tech Lead + PM"
+        }
+      ],
+      "spof_skills": [],
+      "ai_prompt": "Actúa como Risk Manager senior especializado en equipos de ingeniería DevOps/Cloud.\nAnaliza los riesgos del equipo y genera un plan de mitigación detallado y accionable.\n\nEstado actual:\n- Health Score: 0/100\n- Total de riesgos: 28 (6 críticos, 0 altos, 22 medios)\n- Skills con SPOF: ninguno\n\nTop 5 riesgos prioritarios:\n  1. [CRITICA] sobrecarga — Alejandro Martínez tiene carga del 152% — supera capacidad real.\n  2. [CRITICA] sobrecarga — Carolina Valencia tiene carga del 150% — supera capacidad real.\n  3. [CRITICA] sobrecarga — Roberto Omena tiene carga del 132% — supera capacidad real.\n  4. [CRITICA] sobrecarga — Lucía Castro tiene carga del 191% — supera capacidad real.\n  5. [CRITICA] sobrecarga — Diego Quiroga tiene carga del 146% — supera capacidad real.\n\nGenera:\n1. Análisis de causa raíz de los 3 riesgos más críticos\n2. Plan de mitigación a 30 días con hitos semanales\n3. Matriz de riesgos: probabilidad × impacto\n4. Métricas para saber cuándo el riesgo está bajo control\n5. Recomendación de comunicación hacia management"
+    },
+    "tech_lead": {
+      "agent": "tech_lead",
+      "role": "Tech Lead Reviewer",
+      "timestamp": "2026-03-08T18:03:46.495998",
+      "verdict": "NO VIABLE",
+      "findings": [
+        {
+          "severity": "critica",
+          "title": "Equipo sobrecargado al 171%",
+          "detail": "El equipo opera 71% por encima de su capacidad real. Solo hay 0h libres vs las 0h requeridas."
+        },
+        {
+          "severity": "info",
+          "title": "Sin skills especificados",
+          "detail": "No se indicaron skills requeridos. Usa --skills para un análisis más preciso."
+        },
+        {
+          "severity": "critica",
+          "title": "Sin miembros disponibles para asignar",
+          "detail": "Todos los miembros activos superan el 90.0% de carga. No hay capacidad real para un proyecto adicional."
+        },
+        {
+          "severity": "critica",
+          "title": "Health Score crítico (0/100)",
+          "detail": "El equipo tiene 6 riesgos críticos activos. Agregar un proyecto empeorará la situación."
+        },
+        {
+          "severity": "alta",
+          "title": "2 proyectos críticos en curso simultáneamente",
+          "detail": "Proyectos críticos activos: Migración Plataforma Core a EKS, Zero Trust & Hardening IAM. Agregar otro proyecto crítico multiplica el riesgo de entrega."
+        }
+      ],
+      "recommendations": [
+        "NO se recomienda aceptar 'Proyecto nuevo' en este momento. El equipo no tiene capacidad ni salud para absorberlo sin riesgo severo.",
+        "Resolver al menos los riesgos críticos existentes antes de comprometer nuevos proyectos.",
+        "Revisar si alguno de los proyectos críticos activos puede pausarse o reducir su scope."
+      ],
+      "priority_actions": [
+        {
+          "urgency": "inmediata",
+          "action": "Comunicar a stakeholders que el equipo no puede aceptar el proyecto",
+          "owner": "Tech Lead"
+        },
+        {
+          "urgency": "esta semana",
+          "action": "Revisar proyectos activos y proponer qué pausar o descalar",
+          "owner": "Tech Lead + PMs"
+        }
+      ],
+      "project_name": "Proyecto nuevo",
+      "new_project_hours": 0,
+      "required_skills": [],
+      "available_members": [],
+      "team_load_pct": 170.7,
+      "health_score": 0,
+      "ai_prompt": "Actúa como Principal Tech Lead con 15 años de experiencia en equipos DevOps cloud.\nAnaliza si el equipo puede aceptar el proyecto \"Proyecto nuevo\" dadas estas condiciones:\n\n- Carga actual del equipo: 171%\n- Health Score: 0/100\n- Horas disponibles: 0h\n- Horas requeridas: 0h\n- Skills requeridos: no especificados\n- Miembros disponibles: ninguno\n- Riesgos críticos activos: 6\n- Proyectos activos críticos: 2\n\nProporciona:\n1. Veredicto (VIABLE / NO VIABLE / CONDICIONAL) con justificación\n2. Condiciones que deben cumplirse antes de arrancar\n3. Propuesta de asignación concreta (quién lidera, quién apoya)\n4. Riesgos principales del proyecto dado el estado del equipo\n5. Recomendación al sponsor del proyecto"
+    }
+  }
+}

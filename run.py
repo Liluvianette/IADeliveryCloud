@@ -21,6 +21,9 @@ import argparse
 from pathlib import Path
 from datetime import datetime
 
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout.reconfigure(encoding="utf-8")
+
 
 def print_header():
     print("\n" + "═" * 60)
@@ -97,8 +100,53 @@ def run_full_pipeline(skip_ai: bool = False):
     print_step(9, "Sincronizando JSONs al dashboard")
     sync_outputs_to_dashboard()
 
+    # ── Paso 10: Agentes de análisis (automáticos)
+    print_step(10, "Ejecutando agentes de análisis")
+    run_agents_auto()
+
     elapsed = time.time() - start
     print_done(elapsed)
+
+
+def run_agents_auto():
+    """
+    Ejecuta los 3 agentes automáticos (sin input del usuario) y guarda
+    agents_report.json en output/ y dashboard/data/.
+    El estimator se omite aquí porque requiere datos de un proyecto concreto.
+    """
+    import json
+    from datetime import datetime
+    from agents.capacity_analyst import CapacityAnalyst
+    from agents.risk_officer      import RiskOfficer
+    from agents.tech_lead         import TechLeadReviewer
+
+    results = {}
+    try:
+        results["capacity"]  = CapacityAnalyst().run()
+        results["risk"]      = RiskOfficer().run()
+        results["tech_lead"] = TechLeadReviewer().run()
+    except Exception as e:
+        print(f"  ⚠️  Agentes omitidos: {e}")
+        return
+
+    report = {
+        "generated_at": datetime.utcnow().isoformat(),
+        "verdicts": {k: v.get("verdict") for k, v in results.items()},
+        "results":  results,
+    }
+
+    out_path  = Path("output") / "agents_report.json"
+    dash_path = Path("dashboard") / "data" / "agents_report.json"
+
+    for path in (out_path, dash_path):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
+
+    verdicts = report["verdicts"]
+    print(f"  ✅ Agentes ejecutados — capacity: {verdicts.get('capacity')} · "
+          f"risk: {verdicts.get('risk')} · tech_lead: {verdicts.get('tech_lead')}")
+    print(f"  📄 agents_report.json generado")
 
 
 def sync_outputs_to_dashboard():

@@ -7,6 +7,26 @@
   "lookback_days": 30,
   "commits": [
     {
+      "sha": "1461af2f",
+      "repo": "IADeliveryCloud",
+      "repo_full": "Liluvianette/IADeliveryCloud",
+      "author": "Liliana V",
+      "email": "liluvianette@gmail.com",
+      "login": "Liluvianette",
+      "date": "2026-03-08",
+      "message": "feat: 4 agentes de análisis - TechLead, Capacity, Risk, Estimator"
+    },
+    {
+      "sha": "00a57396",
+      "repo": "IADeliveryCloud",
+      "repo_full": "Liluvianette/IADeliveryCloud",
+      "author": "Liliana V",
+      "email": "liluvianette@gmail.com",
+      "login": "Liluvianette",
+      "date": "2026-03-08",
+      "message": "feat: FASE 5 completa - Jira, GitHub, reporte HTML, Project Classifier"
+    },
+    {
       "sha": "73f8a75e",
       "repo": "IADeliveryCloud",
       "repo_full": "Liluvianette/IADeliveryCloud",
@@ -102,7 +122,7 @@
   "metrics": {
     "by_author": {
       "Liluvianette": {
-        "commits": 8,
+        "commits": 10,
         "prs_opened": 0,
         "prs_merged": 0,
         "reviews_given": 0,
@@ -112,6 +132,16 @@
           "IADeliveryCloud"
         ],
         "recent_commits": [
+          {
+            "date": "2026-03-08",
+            "message": "feat: 4 agentes de análisis - TechLead, Capacity, Risk, Estimator",
+            "repo": "IADeliveryCloud"
+          },
+          {
+            "date": "2026-03-08",
+            "message": "feat: FASE 5 completa - Jira, GitHub, reporte HTML, Project Classifier",
+            "repo": "IADeliveryCloud"
+          },
           {
             "date": "2026-03-08",
             "message": "feat: GitHub API real conectado - 5B completado",
@@ -125,16 +155,6 @@
           {
             "date": "2026-03-08",
             "message": "Merge branch 'main' of https://github.com/Liluvianette/IADeliveryCloud",
-            "repo": "IADeliveryCloud"
-          },
-          {
-            "date": "2026-03-08",
-            "message": "ci: deploy to GitHub Pages",
-            "repo": "IADeliveryCloud"
-          },
-          {
-            "date": "2026-03-08",
-            "message": "meerge branch 'main' of https://github.com/Liluvianette/IADeliveryCloud",
             "repo": "IADeliveryCloud"
           }
         ]
@@ -160,17 +180,17 @@
     },
     "by_repo": {
       "IADeliveryCloud": {
-        "commits": 9,
+        "commits": 11,
         "prs": 0,
         "merged_prs": 0,
         "authors": [
-          "Liluvianette",
-          "github-actions[bot]"
+          "github-actions[bot]",
+          "Liluvianette"
         ]
       }
     },
     "totals": {
-      "commits": 9,
+      "commits": 11,
       "pulls": 0,
       "merged_prs": 0,
       "reviews": 0,
@@ -178,5 +198,5 @@
       "active_repos": 1
     }
   },
-  "generated_at": "2026-03-08T23:02:31.258904"
+  "generated_at": "2026-03-09T00:03:46.077463"
 }

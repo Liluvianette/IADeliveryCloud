@@ -5,8 +5,13 @@ Todos los agentes heredan de BaseAgent.
 """
 
 import json
+import sys
 from pathlib import Path
 from datetime import datetime
+
+# Windows cp1252 no soporta los caracteres Unicode usados en print_result
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout.reconfigure(encoding="utf-8")
 
 
 OUTPUT_PATH = Path(__file__).parent.parent / "output"

@@ -212,6 +212,24 @@
     .clr-warn    { color: #d97706; }
     .clr-danger  { color: #dc2626; }
 
+    /* ── Agent verdicts ─────────────────────────────────── */
+    .agents-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; margin-bottom: 24px;
+    }
+    .agent-card {
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 12px 14px; background: var(--bg-light);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .agent-icon  { font-size: 20px; flex-shrink: 0; }
+    .agent-name  { font-size: 10px; color: var(--text-3); font-weight: 600;
+                   text-transform: uppercase; letter-spacing: .05em; }
+    .agent-verdict { font-size: 13px; font-weight: 700; margin-top: 2px; }
+    .av-critico, .av-alto-riesgo, .av-no-viable { color: var(--danger); }
+    .av-moderado, .av-condicional               { color: var(--warning); }
+    .av-saludable, .av-viable, .av-bajo-riesgo  { color: var(--success); }
+
     /* ── @media print ───────────────────────────────────── */
     @media print {
       @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
@@ -284,6 +302,12 @@
       <div class="banner-text">
         <div>Cargando...</div>
       </div>
+    </div>
+
+    <!-- Veredictos de agentes (se oculta si no hay agents_report.json) -->
+    <div class="section" id="agentsSection" style="display:none">
+      <div class="section-title">Análisis de Agentes</div>
+      <div class="agents-grid" id="agentsGrid"></div>
     </div>
 
     <!-- KPIs -->
@@ -546,6 +570,46 @@ function renderSkills(skillsData) {
     }).join('');
 }
 
+function renderAgents(agentsReport) {
+  const AGENTS = [
+    { key: 'capacity',  name: 'Capacity Analyst',   icon: '📊' },
+    { key: 'risk',      name: 'Risk Officer',        icon: '🛡️' },
+    { key: 'tech_lead', name: 'Tech Lead Reviewer',  icon: '👨‍💼' },
+    { key: 'estimator', name: 'Estimator',           icon: '📐' },
+  ];
+  const ICONS = {
+    'CRÍTICO': '🔴', 'ALTO RIESGO': '🔴', 'NO VIABLE': '🚫',
+    'MODERADO': '🟡', 'CONDICIONAL': '⚠️',
+    'SALUDABLE': '🟢', 'VIABLE': '✅', 'BAJO RIESGO': '🟢',
+  };
+  const CSS = {
+    'CRÍTICO': 'av-critico', 'ALTO RIESGO': 'av-alto-riesgo', 'NO VIABLE': 'av-no-viable',
+    'MODERADO': 'av-moderado', 'CONDICIONAL': 'av-condicional',
+    'SALUDABLE': 'av-saludable', 'VIABLE': 'av-viable', 'BAJO RIESGO': 'av-bajo-riesgo',
+  };
+
+  const verdicts = agentsReport.verdicts || {};
+  const available = AGENTS.filter(a => verdicts[a.key]);
+  if (!available.length) return;
+
+  $('agentsGrid').style.gridTemplateColumns = `repeat(${available.length}, 1fr)`;
+  $('agentsGrid').innerHTML = available.map(a => {
+    const v = verdicts[a.key] || '—';
+    const css = CSS[v] || '';
+    const icon = ICONS[v] || '❓';
+    return `
+      <div class="agent-card">
+        <div class="agent-icon">${a.icon}</div>
+        <div>
+          <div class="agent-name">${a.name}</div>
+          <div class="agent-verdict ${css}">${icon} ${v}</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  $('agentsSection').style.display = '';
+}
+
 // ── Boot ──────────────────────────────────────────────────
 async function boot() {
   const now = new Date().toLocaleString('es-MX', {
@@ -556,18 +620,20 @@ async function boot() {
   $('footerDate').textContent = `Generado: ${now}`;
 
   try {
-    const [cap, health, skills, projects, git, jira] = await Promise.all([
+    const [cap, health, skills, projects, git, jira, agents] = await Promise.all([
       fetchJSON('./data/team_capacity.json'),
       fetchJSON('./data/team_health.json'),
       fetchJSON('./data/skills_matrix.json'),
       fetchJSON('./data/projects_raw.json').catch(() => null),
       fetchJSON('./data/git_data.json').catch(() => null),
       fetchJSON('./data/jira_data.json').catch(() => null),
+      fetchJSON('./data/agents_report.json').catch(() => null),
     ]);
 
     const allProjects = projects?.projects || buildProjectsFromCapacity(cap);
 
     renderBanner(cap.summary, $('banner'));
+    if (agents) renderAgents(agents);
     renderKPIs(cap, health);
     renderTeam(cap);
     renderProjects(cap, allProjects);
