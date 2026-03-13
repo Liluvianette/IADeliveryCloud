@@ -7,6 +7,12 @@
 # Severidad: critica | alta | media | baja
 # Estado:   activo | pausado | completado | cancelado | planificado
 
+quarters:
+  current: "Q1-2026"
+  start_date: "2026-01-15"
+  end_date: "2026-05-15"
+  sprints_count: 8
+
 projects:
 
   # ══════════════════════════════════════════════════════════

@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-03-13T02:54:45.372868",
+  "incoming_project": {
+    "name": "Nuevo Pipeline CI/CD Multi-Cloud",
+    "type": "iac",
+    "severity": "alta",
+    "total_hours": 320,
+    "total_mm": 2.0,
+    "required_skills": [
+      "kubernetes",
+      "terraform",
+      "ci_cd",
+      "docker"
+    ],
+    "activities": [
+      {
+        "name": "Discovery y diseño de arquitectura",
+        "hours": 40
+      },
+      {
+        "name": "Implementación pipelines AWS",
+        "hours": 80
+      },
+      {
+        "name": "Implementación pipelines GCP",
+        "hours": 60
+      },
+      {
+        "name": "Testing e integración",
+        "hours": 60
+      },
+      {
+        "name": "Documentación y handoff",
+        "hours": 40
+      },
+      {
+        "name": "Buffer de riesgo",
+        "hours": 40
+      }
+    ]
+  },
+  "verdict": "NO VIABLE",
+  "reason": "Equipo al 136.9% — solo 0.0 MM libres, necesita 2.0 MM",
+  "best_fit_members": [
+    {
+      "id": "amartinez",
+      "name": "Alejandro Martínez",
+      "role": "Tech Lead Cloud",
+      "seniority": "senior",
+      "skill_match": 100.0,
+      "current_load_pct": 121.8,
+      "free_mm": 0.0,
+      "available_mm": 1.47,
+      "assignable_mm": 0.0,
+      "load_if_added": 121.8
+    },
+    {
+      "id": "cvalencia",
+      "name": "Carolina Valencia",
+      "role": "Tech Lead DevSecOps",
+      "seniority": "senior",
+      "skill_match": 100.0,
+      "current_load_pct": 121.0,
+      "free_mm": 0.0,
+      "available_mm": 1.57,
+      "assignable_mm": 0.0,
+      "load_if_added": 121.0
+    },
+    {
+      "id": "romena",
+      "name": "Roberto Omena",
+      "role": "DevOps Engineer",
+      "seniority": "semi-senior",
+      "skill_match": 100.0,
+      "current_load_pct": 105.3,
+      "free_mm": 0.0,
+      "available_mm": 1.89,
+      "assignable_mm": 0.0,
+      "load_if_added": 105.3
+    },
+    {
+      "id": "lcastro",
+      "name": "Lucía Castro",
+      "role": "DevOps Engineer",
+      "seniority": "semi-senior",
+      "skill_match": 90.0,
+      "current_load_pct": 153.1,
+      "free_mm": 0.0,
+      "available_mm": 1.79,
+      "assignable_mm": 0.0,
+      "load_if_added": 153.1
+    },
+    {
+      "id": "dquiroga",
+      "name": "Diego Quiroga",
+      "role": "DevOps Engineer",
+      "seniority": "junior",
+      "skill_match": 52.5,
+      "current_load_pct": 116.9,
+      "free_mm": 0.0,
+      "available_mm": 1.89,
+      "assignable_mm": 0.0,
+      "load_if_added": 116.9
+    }
+  ],
+  "impact_on_team": {
+    "before": {
+      "team_load_pct": 136.9,
+      "allocated_mm": 11.79,
+      "free_mm": 0.0,
+      "overloaded_count": 6
+    },
+    "after": {
+      "team_load_pct": 160.2,
+      "allocated_mm": 13.79,
+      "free_mm": 0,
+      "overloaded_count": 6
+    }
+  },
+  "alternatives": [
+    "Posponer 'Deuda Técnica — Terraform Upgrade v1.7' (severidad media) → libera 0.74 MM",
+    "Posponer 'Onboarding Técnico — Nuevo Equipo Fintech' (severidad media) → libera 0.84 MM",
+    "Contratar recurso temporal (2.0 MM) para cubrir el proyecto",
+    "Iniciar en Q2-2026 cuando termine algún proyecto activo",
+    "Reducir alcance a 1.0 MM (MVP con las actividades más críticas)"
+  ]
+}

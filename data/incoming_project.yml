@@ -1,0 +1,37 @@
+# ============================================================
+# Proyecto Nuevo a Simular — Template
+# ============================================================
+# Llena este archivo con el proyecto que te piden evaluar
+# y ejecuta: python run_whatif.py
+#
+# El simulador evaluará si el equipo puede absorberlo
+# dados la capacidad actual, skills y carga del Quarter.
+
+name: "Nuevo Pipeline CI/CD Multi-Cloud"
+type: iac                       # iac | desarrollo | soporte | investigacion
+severity: alta                  # critica | alta | media | baja
+
+# Opción 1: Horas totales estimadas
+estimated_effort_hours: 320
+
+# Skills requeridos del equipo
+required_skills:
+  - kubernetes
+  - terraform
+  - ci_cd
+  - docker
+
+# Opción 2: Desglose por actividades (más preciso)
+activities:
+  - name: "Discovery y diseño de arquitectura"
+    hours: 40
+  - name: "Implementación pipelines AWS"
+    hours: 80
+  - name: "Implementación pipelines GCP"
+    hours: 60
+  - name: "Testing e integración"
+    hours: 60
+  - name: "Documentación y handoff"
+    hours: 40
+  - name: "Buffer de riesgo"
+    hours: 40

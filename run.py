@@ -68,40 +68,60 @@ def run_full_pipeline(skip_ai: bool = False):
     from ingestion.git_ingest import run as git_run
     git_run()
 
-    # ── Paso 4: Motor de capacidad
-    print_step(4, "Calculando capacidad del equipo")
+    # ── Paso 4: Identity resolver
+    print_step(4, "Resolución de identidades")
+    from analysis.identity_resolver import run as identity_run
+    identity_run()
+
+    # ── Paso 5: Motor de capacidad
+    print_step(5, "Calculando capacidad del equipo")
     from analysis.capacity_engine import run as capacity_run
     capacity_run()
 
-    # ── Paso 5: Motor de riesgos
-    print_step(5, "Analizando riesgos y salud del equipo")
+    # ── Paso 6: Activity Engine
+    print_step(6, "Calculando actividad por persona")
+    from analysis.activity_engine import run as activity_run
+    activity_run()
+
+    # ── Paso 7: Velocity Engine
+    print_step(7, "Calculando velocidad y tendencias")
+    from analysis.velocity_engine import run as velocity_run
+    velocity_run()
+
+    # ── Paso 8: Quarter Planner
+    print_step(8, "Generando tabla MM del Quarter")
+    from analysis.quarter_planner import run as quarter_run
+    quarter_run()
+
+    # ── Paso 9: Motor de riesgos
+    print_step(9, "Analizando riesgos y salud del equipo")
     from analysis.risk_engine import run as risk_run
     risk_run()
 
-    # ── Paso 6: Matriz de skills
-    print_step(6, "Generando matriz de habilidades")
+    # ── Paso 10: Matriz de skills
+    print_step(10, "Generando matriz de habilidades")
     from analysis.skills_matrix import run as skills_run
     skills_run()
 
-    # ── Paso 7: Estimación (ejemplo)
-    print_step(7, "Calculando estimación de referencia")
+    # ── Paso 11: Estimación (ejemplo)
+    print_step(11, "Calculando estimación de referencia")
     from analysis.estimation_engine import run as estimation_run
     estimation_run(project_type="iac", complexity="medio")
 
-    # ── Paso 8: Discovery con IA (opcional)
+    # ── Paso 12: Discovery con IA (opcional)
     if not skip_ai:
-        print_step(8, "Analizando discovery con IA")
+        print_step(12, "Analizando discovery con IA")
         from ai.discovery_analyzer import run as discovery_run
         discovery_run()
     else:
-        print_step(8, "Discovery con IA [OMITIDO — --skip-ai]")
+        print_step(12, "Discovery con IA [OMITIDO — --skip-ai]")
 
-    # ── Paso 9: Copiar JSONs al dashboard
-    print_step(9, "Sincronizando JSONs al dashboard")
+    # ── Paso 13: Copiar JSONs al dashboard
+    print_step(13, "Sincronizando JSONs al dashboard")
     sync_outputs_to_dashboard()
 
-    # ── Paso 10: Agentes de análisis (automáticos)
-    print_step(10, "Ejecutando agentes de análisis")
+    # ── Paso 14: Agentes de análisis (automáticos)
+    print_step(14, "Ejecutando agentes de análisis")
     run_agents_auto()
 
     elapsed = time.time() - start

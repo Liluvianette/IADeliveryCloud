@@ -71,6 +71,8 @@ def normalize_team(raw_team: list[dict], config: dict) -> list[dict]:
 
         available_hours = calculate_available_hours(member, config)
 
+        identities = member.get("identities", {})
+
         normalized.append({
             "id":               member["id"],
             "name":             member["name"],
@@ -79,6 +81,12 @@ def normalize_team(raw_team: list[dict], config: dict) -> list[dict]:
             "email":            member.get("email", ""),
             "active":           member.get("active", True),
             "on_leave":         member["capacity"].get("on_leave", False),
+            "identities": {
+                "jira_email":        identities.get("jira_email", member.get("email", "")),
+                "jira_display_name": identities.get("jira_display_name", member["name"]),
+                "github_login":      identities.get("github_login", ""),
+                "github_emails":     identities.get("github_emails", []),
+            },
             "capacity": {
                 "hours_per_month":      member["capacity"]["hours_per_month"],
                 "availability_percent": member["capacity"]["availability_percent"],

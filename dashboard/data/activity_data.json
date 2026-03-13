@@ -1,0 +1,214 @@
+{
+  "generated_at": "2026-03-13T02:54:26.277358",
+  "team_activity": [
+    {
+      "member_id": "amartinez",
+      "name": "Alejandro Martínez",
+      "role": "Tech Lead Cloud",
+      "on_leave": false,
+      "current_sprint": {
+        "issues_in_progress": [],
+        "issues_done": [],
+        "issues_todo": [],
+        "issues_blocked": [],
+        "points_committed": 0,
+        "points_completed": 0,
+        "total_issues": 0
+      },
+      "github_activity": {
+        "commits_count": 0,
+        "prs_open": [],
+        "prs_merged_count": 0,
+        "reviews_given": 0,
+        "avg_pr_lead_time_hours": null,
+        "recent_commits": []
+      },
+      "planned_vs_actual": {
+        "planned_hours": 136.0,
+        "actual_hours": 0.0,
+        "jira_hours": 0,
+        "git_imputed_hours": 0.0,
+        "delta_hours": -136.0,
+        "actual_percent": 0.0,
+        "assessment": "muy bajo"
+      },
+      "blockers": []
+    },
+    {
+      "member_id": "cvalencia",
+      "name": "Carolina Valencia",
+      "role": "Tech Lead DevSecOps",
+      "on_leave": false,
+      "current_sprint": {
+        "issues_in_progress": [],
+        "issues_done": [],
+        "issues_todo": [],
+        "issues_blocked": [],
+        "points_committed": 0,
+        "points_completed": 0,
+        "total_issues": 0
+      },
+      "github_activity": {
+        "commits_count": 0,
+        "prs_open": [],
+        "prs_merged_count": 0,
+        "reviews_given": 0,
+        "avg_pr_lead_time_hours": null,
+        "recent_commits": []
+      },
+      "planned_vs_actual": {
+        "planned_hours": 144.0,
+        "actual_hours": 0.0,
+        "jira_hours": 0,
+        "git_imputed_hours": 0.0,
+        "delta_hours": -144.0,
+        "actual_percent": 0.0,
+        "assessment": "muy bajo"
+      },
+      "blockers": []
+    },
+    {
+      "member_id": "romena",
+      "name": "Roberto Omena",
+      "role": "DevOps Engineer",
+      "on_leave": false,
+      "current_sprint": {
+        "issues_in_progress": [],
+        "issues_done": [],
+        "issues_todo": [],
+        "issues_blocked": [],
+        "points_committed": 0,
+        "points_completed": 0,
+        "total_issues": 0
+      },
+      "github_activity": {
+        "commits_count": 0,
+        "prs_open": [],
+        "prs_merged_count": 0,
+        "reviews_given": 0,
+        "avg_pr_lead_time_hours": null,
+        "recent_commits": []
+      },
+      "planned_vs_actual": {
+        "planned_hours": 152.0,
+        "actual_hours": 0.0,
+        "jira_hours": 0,
+        "git_imputed_hours": 0.0,
+        "delta_hours": -152.0,
+        "actual_percent": 0.0,
+        "assessment": "muy bajo"
+      },
+      "blockers": []
+    },
+    {
+      "member_id": "lcastro",
+      "name": "Lucía Castro",
+      "role": "DevOps Engineer",
+      "on_leave": false,
+      "current_sprint": {
+        "issues_in_progress": [],
+        "issues_done": [],
+        "issues_todo": [],
+        "issues_blocked": [],
+        "points_committed": 0,
+        "points_completed": 0,
+        "total_issues": 0
+      },
+      "github_activity": {
+        "commits_count": 0,
+        "prs_open": [],
+        "prs_merged_count": 0,
+        "reviews_given": 0,
+        "avg_pr_lead_time_hours": null,
+        "recent_commits": []
+      },
+      "planned_vs_actual": {
+        "planned_hours": 208.0,
+        "actual_hours": 0.0,
+        "jira_hours": 0,
+        "git_imputed_hours": 0.0,
+        "delta_hours": -208.0,
+        "actual_percent": 0.0,
+        "assessment": "muy bajo"
+      },
+      "blockers": []
+    },
+    {
+      "member_id": "dquiroga",
+      "name": "Diego Quiroga",
+      "role": "DevOps Engineer",
+      "on_leave": false,
+      "current_sprint": {
+        "issues_in_progress": [],
+        "issues_done": [],
+        "issues_todo": [],
+        "issues_blocked": [],
+        "points_committed": 0,
+        "points_completed": 0,
+        "total_issues": 0
+      },
+      "github_activity": {
+        "commits_count": 0,
+        "prs_open": [],
+        "prs_merged_count": 0,
+        "reviews_given": 0,
+        "avg_pr_lead_time_hours": null,
+        "recent_commits": []
+      },
+      "planned_vs_actual": {
+        "planned_hours": 168.0,
+        "actual_hours": 0.0,
+        "jira_hours": 0,
+        "git_imputed_hours": 0.0,
+        "delta_hours": -168.0,
+        "actual_percent": 0.0,
+        "assessment": "muy bajo"
+      },
+      "blockers": []
+    },
+    {
+      "member_id": "mfuentes",
+      "name": "Mariana Fuentes",
+      "role": "Cloud Engineer",
+      "on_leave": true,
+      "current_sprint": {
+        "issues_in_progress": [],
+        "issues_done": [],
+        "issues_todo": [],
+        "issues_blocked": [],
+        "points_committed": 0,
+        "points_completed": 0,
+        "total_issues": 0
+      },
+      "github_activity": {
+        "commits_count": 0,
+        "prs_open": [],
+        "prs_merged_count": 0,
+        "reviews_given": 0,
+        "avg_pr_lead_time_hours": null,
+        "recent_commits": []
+      },
+      "planned_vs_actual": {
+        "planned_hours": 88.0,
+        "actual_hours": 0.0,
+        "jira_hours": 0,
+        "git_imputed_hours": 0.0,
+        "delta_hours": -88.0,
+        "actual_percent": 0.0,
+        "assessment": "muy bajo"
+      },
+      "blockers": []
+    }
+  ],
+  "summary": {
+    "total_members": 6,
+    "total_issues_in_progress": 0,
+    "total_blockers": 0,
+    "oldest_blocker_days": 0,
+    "members_with_blockers": 0
+  },
+  "unresolved_identities": [
+    "Liluvianette",
+    "github-actions[bot]"
+  ]
+}

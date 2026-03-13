@@ -128,12 +128,43 @@ class JiraClient:
 
 # ── Normalización ─────────────────────────────────────────
 
+def _parse_sprint_field(sprint_raw):
+    """Extrae nombre y estado del sprint desde customfield_10020."""
+    if not sprint_raw:
+        return None
+    # sprint_raw puede ser lista de objetos o strings
+    sprint = sprint_raw[-1] if isinstance(sprint_raw, list) else sprint_raw
+    if isinstance(sprint, dict):
+        return {
+            "name": sprint.get("name", ""),
+            "state": sprint.get("state", ""),
+            "id": sprint.get("id"),
+        }
+    if isinstance(sprint, str):
+        # Formato legacy: "com.atlassian.greenhopper...name=Sprint 5,state=ACTIVE..."
+        import re
+        name_match = re.search(r"name=([^,\]]+)", sprint)
+        state_match = re.search(r"state=([^,\]]+)", sprint)
+        return {
+            "name": name_match.group(1) if name_match else "",
+            "state": state_match.group(1).lower() if state_match else "",
+            "id": None,
+        }
+    return None
+
+
 def normalize_issue(issue):
     f   = issue.get("fields", {})
     assignee = f.get("assignee") or {}
     parent   = f.get("parent")   or {}
     points   = (f.get("customfield_10016") or
                 f.get("customfield_10028") or None)
+    sprint   = _parse_sprint_field(f.get("customfield_10020"))
+
+    time_estimate_sec = f.get("timeestimate") or 0
+    time_spent_sec = f.get("timespent") or 0
+    time_original_sec = f.get("timeoriginalestimate") or 0
+
     return {
         "key":             issue["key"],
         "summary":         f.get("summary", ""),
@@ -147,9 +178,14 @@ def normalize_issue(issue):
         "created":         (f.get("created")        or "")[:10],
         "updated":         (f.get("updated")         or "")[:10],
         "resolved":        (f.get("resolutiondate")  or "")[:10] or None,
+        "duedate":         (f.get("duedate")         or "")[:10] or None,
         "parent_key":      parent.get("key"),
         "labels":          f.get("labels", []),
         "project_key":     issue["key"].split("-")[0],
+        "sprint":          sprint,
+        "time_estimate_hours":  round(time_estimate_sec / 3600, 2) if time_estimate_sec else None,
+        "time_spent_hours":     round(time_spent_sec / 3600, 2) if time_spent_sec else None,
+        "time_original_hours":  round(time_original_sec / 3600, 2) if time_original_sec else None,
     }
 
 
@@ -244,8 +280,9 @@ def fetch_from_jira(config):
 
     fields = [
         "summary","status","issuetype","assignee",
-        "customfield_10016","customfield_10028",
+        "customfield_10016","customfield_10028","customfield_10020",
         "created","updated","resolutiondate","parent","labels","priority",
+        "duedate","timeestimate","timespent","timeoriginalestimate",
     ]
 
     raw_issues = client.search_issues(jql, fields)
@@ -276,17 +313,20 @@ def generate_mock_data():
     today = datetime.utcnow()
     def d(days): return (today - timedelta(days=days)).strftime("%Y-%m-%d")
 
+    sprint_active = {"name": "Sprint 5", "state": "active", "id": 5}
+    sprint_prev   = {"name": "Sprint 4", "state": "closed", "id": 4}
+
     issues = [
-        {"key":"CDIP-1","summary":"Setup EKS cluster",          "type":"Story","status":"Done",       "status_category":"Done",       "assignee":"Alejandro Martínez","assignee_email":"amartinez@empresa.com","story_points":8, "priority":"High",    "created":d(40),"updated":d(10),"resolved":d(10),"parent_key":None,    "labels":["infra"],   "project_key":"CDIP"},
-        {"key":"CDIP-2","summary":"Configurar node groups",      "type":"Story","status":"Done",       "status_category":"Done",       "assignee":"Roberto Omena",     "assignee_email":"romena@empresa.com",   "story_points":5, "priority":"High",    "created":d(35),"updated":d(8), "resolved":d(8), "parent_key":"CDIP-1","labels":[],          "project_key":"CDIP"},
-        {"key":"CDIP-3","summary":"Cluster autoscaler",          "type":"Story","status":"In Progress","status_category":"In Progress","assignee":"Roberto Omena",     "assignee_email":"romena@empresa.com",   "story_points":5, "priority":"High",    "created":d(20),"updated":d(2), "resolved":None, "parent_key":"CDIP-1","labels":[],          "project_key":"CDIP"},
-        {"key":"CDIP-4","summary":"Prometheus + Grafana",        "type":"Story","status":"In Progress","status_category":"In Progress","assignee":"Lucía Castro",      "assignee_email":"lcastro@empresa.com",  "story_points":8, "priority":"High",    "created":d(18),"updated":d(1), "resolved":None, "parent_key":None,    "labels":["obs"],     "project_key":"CDIP"},
-        {"key":"SEC-1", "summary":"Auditoría IAM",               "type":"Story","status":"In Progress","status_category":"In Progress","assignee":"Carolina Valencia", "assignee_email":"cvalencia@empresa.com","story_points":13,"priority":"Critical","created":d(25),"updated":d(1), "resolved":None, "parent_key":None,    "labels":["security"],"project_key":"SEC"},
-        {"key":"SEC-2", "summary":"Configurar AWS WAF",          "type":"Task", "status":"To Do",     "status_category":"To Do",      "assignee":"Carolina Valencia", "assignee_email":"cvalencia@empresa.com","story_points":5, "priority":"High",    "created":d(10),"updated":d(1), "resolved":None, "parent_key":"SEC-1", "labels":["security"],"project_key":"SEC"},
-        {"key":"DEV-1", "summary":"Pipeline template Python",    "type":"Story","status":"Done",       "status_category":"Done",       "assignee":"Roberto Omena",     "assignee_email":"romena@empresa.com",   "story_points":3, "priority":"Medium",  "created":d(30),"updated":d(12),"resolved":d(12),"parent_key":None,    "labels":["ci-cd"],   "project_key":"DEV"},
-        {"key":"DEV-2", "summary":"Pipeline template Node.js",   "type":"Story","status":"In Progress","status_category":"In Progress","assignee":"Diego Quiroga",     "assignee_email":"dquiroga@empresa.com", "story_points":3, "priority":"Medium",  "created":d(15),"updated":d(2), "resolved":None, "parent_key":None,    "labels":["ci-cd"],   "project_key":"DEV"},
-        {"key":"DEV-3", "summary":"SAST en pipelines",           "type":"Task", "status":"To Do",     "status_category":"To Do",      "assignee":"Diego Quiroga",     "assignee_email":"dquiroga@empresa.com", "story_points":5, "priority":"High",    "created":d(8), "updated":d(1), "resolved":None, "parent_key":"DEV-2", "labels":["security"],"project_key":"DEV"},
-        {"key":"OPS-1", "summary":"Incident: latencia RDS",      "type":"Bug",  "status":"Done",       "status_category":"Done",       "assignee":"Alejandro Martínez","assignee_email":"amartinez@empresa.com","story_points":None,"priority":"Critical","created":d(5),"updated":d(4),"resolved":d(4), "parent_key":None,    "labels":["incident"],"project_key":"OPS"},
+        {"key":"CDIP-1","summary":"Setup EKS cluster",          "type":"Story","status":"Done",       "status_category":"Done",       "assignee":"Alejandro Martínez","assignee_email":"amartinez@empresa.com","story_points":8, "priority":"High",    "created":d(40),"updated":d(10),"resolved":d(10),"duedate":d(-5),"parent_key":None,    "labels":["infra"],   "project_key":"CDIP","sprint":sprint_prev,"time_estimate_hours":16,"time_spent_hours":18,"time_original_hours":16},
+        {"key":"CDIP-2","summary":"Configurar node groups",      "type":"Story","status":"Done",       "status_category":"Done",       "assignee":"Roberto Omena",     "assignee_email":"romena@empresa.com",   "story_points":5, "priority":"High",    "created":d(35),"updated":d(8), "resolved":d(8), "duedate":d(-3),"parent_key":"CDIP-1","labels":[],          "project_key":"CDIP","sprint":sprint_prev,"time_estimate_hours":10,"time_spent_hours":12,"time_original_hours":10},
+        {"key":"CDIP-3","summary":"Cluster autoscaler",          "type":"Story","status":"In Progress","status_category":"In Progress","assignee":"Roberto Omena",     "assignee_email":"romena@empresa.com",   "story_points":5, "priority":"High",    "created":d(20),"updated":d(2), "resolved":None, "duedate":d(-2),"parent_key":"CDIP-1","labels":[],          "project_key":"CDIP","sprint":sprint_active,"time_estimate_hours":8,"time_spent_hours":4,"time_original_hours":10},
+        {"key":"CDIP-4","summary":"Prometheus + Grafana",        "type":"Story","status":"In Progress","status_category":"In Progress","assignee":"Lucía Castro",      "assignee_email":"lcastro@empresa.com",  "story_points":8, "priority":"High",    "created":d(18),"updated":d(1), "resolved":None, "duedate":d(-5),"parent_key":None,    "labels":["obs"],     "project_key":"CDIP","sprint":sprint_active,"time_estimate_hours":16,"time_spent_hours":5,"time_original_hours":16},
+        {"key":"SEC-1", "summary":"Auditoría IAM",               "type":"Story","status":"In Progress","status_category":"In Progress","assignee":"Carolina Valencia", "assignee_email":"cvalencia@empresa.com","story_points":13,"priority":"Critical","created":d(25),"updated":d(1), "resolved":None, "duedate":d(-7),"parent_key":None,    "labels":["security"],"project_key":"SEC","sprint":sprint_active,"time_estimate_hours":24,"time_spent_hours":10,"time_original_hours":24},
+        {"key":"SEC-2", "summary":"Configurar AWS WAF",          "type":"Task", "status":"To Do",     "status_category":"To Do",      "assignee":"Carolina Valencia", "assignee_email":"cvalencia@empresa.com","story_points":5, "priority":"High",    "created":d(10),"updated":d(1), "resolved":None, "duedate":d(-10),"parent_key":"SEC-1", "labels":["security"],"project_key":"SEC","sprint":sprint_active,"time_estimate_hours":8,"time_spent_hours":None,"time_original_hours":8},
+        {"key":"DEV-1", "summary":"Pipeline template Python",    "type":"Story","status":"Done",       "status_category":"Done",       "assignee":"Roberto Omena",     "assignee_email":"romena@empresa.com",   "story_points":3, "priority":"Medium",  "created":d(30),"updated":d(12),"resolved":d(12),"duedate":None,"parent_key":None,    "labels":["ci-cd"],   "project_key":"DEV","sprint":sprint_prev,"time_estimate_hours":6,"time_spent_hours":5,"time_original_hours":6},
+        {"key":"DEV-2", "summary":"Pipeline template Node.js",   "type":"Story","status":"In Progress","status_category":"In Progress","assignee":"Diego Quiroga",     "assignee_email":"dquiroga@empresa.com", "story_points":3, "priority":"Medium",  "created":d(15),"updated":d(2), "resolved":None, "duedate":d(-3),"parent_key":None,    "labels":["ci-cd"],   "project_key":"DEV","sprint":sprint_active,"time_estimate_hours":6,"time_spent_hours":2,"time_original_hours":6},
+        {"key":"DEV-3", "summary":"SAST en pipelines",           "type":"Task", "status":"To Do",     "status_category":"To Do",      "assignee":"Diego Quiroga",     "assignee_email":"dquiroga@empresa.com", "story_points":5, "priority":"High",    "created":d(8), "updated":d(1), "resolved":None, "duedate":d(-8),"parent_key":"DEV-2", "labels":["security"],"project_key":"DEV","sprint":sprint_active,"time_estimate_hours":10,"time_spent_hours":None,"time_original_hours":10},
+        {"key":"OPS-1", "summary":"Incident: latencia RDS",      "type":"Bug",  "status":"Done",       "status_category":"Done",       "assignee":"Alejandro Martínez","assignee_email":"amartinez@empresa.com","story_points":None,"priority":"Critical","created":d(5),"updated":d(4),"resolved":d(4), "duedate":None,"parent_key":None,    "labels":["incident"],"project_key":"OPS","sprint":None,"time_estimate_hours":None,"time_spent_hours":3,"time_original_hours":None},
     ]
     worklogs = [
         {"issue_key":"CDIP-1","author":"Alejandro Martínez","author_email":"amartinez@empresa.com","time_spent_sec":28800,"time_spent_hours":8.0, "date":d(15),"comment":"Diseño arquitectura"},

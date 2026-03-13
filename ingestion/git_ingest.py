@@ -115,14 +115,45 @@ def normalize_commit(raw, repo):
     }
 
 
+def _parse_jira_keys(text):
+    """Extrae claves Jira (ej. CDIP-123) de un texto."""
+    import re
+    if not text:
+        return []
+    return list(set(re.findall(r"[A-Z][A-Z0-9]+-\d+", text)))
+
+
+def _calc_lead_time_hours(created_at, merged_at):
+    """Calcula horas desde creación del PR hasta merge."""
+    if not created_at or not merged_at:
+        return None
+    try:
+        fmt = "%Y-%m-%dT%H:%M:%SZ"
+        created = datetime.strptime(created_at, fmt)
+        merged = datetime.strptime(merged_at, fmt)
+        delta = (merged - created).total_seconds() / 3600
+        return round(delta, 1)
+    except (ValueError, TypeError):
+        return None
+
+
 def normalize_pull(raw, repo):
     user   = raw.get("user") or {}
     merged = raw.get("merged_at")
+    head   = raw.get("head") or {}
+    title  = raw.get("title", "")
+    branch = head.get("ref", "")
+
+    jira_keys = _parse_jira_keys(title) + _parse_jira_keys(branch)
+    jira_keys = list(set(jira_keys))
+
+    lead_time = _calc_lead_time_hours(raw.get("created_at"), merged)
+
     return {
         "number":      raw.get("number"),
         "repo":        repo.split("/")[-1],
         "repo_full":   repo,
-        "title":       raw.get("title", "")[:100],
+        "title":       title[:100],
         "state":       raw.get("state", ""),
         "merged":      merged is not None,
         "author":      user.get("login", ""),
@@ -135,6 +166,8 @@ def normalize_pull(raw, repo):
         "changed_files": raw.get("changed_files", 0),
         "comments":    raw.get("comments", 0),
         "review_comments": raw.get("review_comments", 0),
+        "lead_time_hours": lead_time,
+        "jira_keys":   jira_keys,
     }
 
 

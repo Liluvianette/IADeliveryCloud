@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-03-13T02:54:26.324792",
+  "period_type": "week",
+  "team_velocity": {
+    "periods": [],
+    "avg_velocity": 0,
+    "trend": "insufficient_data",
+    "total_periods": 0
+  },
+  "by_member": {
+    "amartinez": {
+      "name": "Alejandro Martínez",
+      "periods": [],
+      "avg_velocity": 0,
+      "trend": "insufficient_data"
+    },
+    "cvalencia": {
+      "name": "Carolina Valencia",
+      "periods": [],
+      "avg_velocity": 0,
+      "trend": "insufficient_data"
+    },
+    "romena": {
+      "name": "Roberto Omena",
+      "periods": [],
+      "avg_velocity": 0,
+      "trend": "insufficient_data"
+    },
+    "lcastro": {
+      "name": "Lucía Castro",
+      "periods": [],
+      "avg_velocity": 0,
+      "trend": "insufficient_data"
+    },
+    "dquiroga": {
+      "name": "Diego Quiroga",
+      "periods": [],
+      "avg_velocity": 0,
+      "trend": "insufficient_data"
+    },
+    "mfuentes": {
+      "name": "Mariana Fuentes",
+      "periods": [],
+      "avg_velocity": 0,
+      "trend": "insufficient_data"
+    }
+  }
+}

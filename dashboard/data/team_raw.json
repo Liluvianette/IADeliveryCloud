@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-09T00:03:34.312490",
+  "generated_at": "2026-03-13T02:54:11.199316",
   "total_members": 6,
   "team": [
     {
@@ -10,6 +10,14 @@
       "email": "amartinez@empresa.com",
       "active": true,
       "on_leave": false,
+      "identities": {
+        "jira_email": "amartinez@empresa.com",
+        "jira_display_name": "Alejandro Martínez",
+        "github_login": "amartinez",
+        "github_emails": [
+          "amartinez@empresa.com"
+        ]
+      },
       "capacity": {
         "hours_per_month": 160,
         "availability_percent": 70,
@@ -50,6 +58,14 @@
       "email": "cvalencia@empresa.com",
       "active": true,
       "on_leave": false,
+      "identities": {
+        "jira_email": "cvalencia@empresa.com",
+        "jira_display_name": "Carolina Valencia",
+        "github_login": "cvalencia",
+        "github_emails": [
+          "cvalencia@empresa.com"
+        ]
+      },
       "capacity": {
         "hours_per_month": 160,
         "availability_percent": 75,
@@ -90,6 +106,14 @@
       "email": "romena@empresa.com",
       "active": true,
       "on_leave": false,
+      "identities": {
+        "jira_email": "romena@empresa.com",
+        "jira_display_name": "Roberto Omena",
+        "github_login": "romena",
+        "github_emails": [
+          "romena@empresa.com"
+        ]
+      },
       "capacity": {
         "hours_per_month": 160,
         "availability_percent": 90,
@@ -130,6 +154,14 @@
       "email": "lcastro@empresa.com",
       "active": true,
       "on_leave": false,
+      "identities": {
+        "jira_email": "lcastro@empresa.com",
+        "jira_display_name": "Lucía Castro",
+        "github_login": "lcastro",
+        "github_emails": [
+          "lcastro@empresa.com"
+        ]
+      },
       "capacity": {
         "hours_per_month": 160,
         "availability_percent": 85,
@@ -170,6 +202,14 @@
       "email": "dquiroga@empresa.com",
       "active": true,
       "on_leave": false,
+      "identities": {
+        "jira_email": "dquiroga@empresa.com",
+        "jira_display_name": "Diego Quiroga",
+        "github_login": "dquiroga",
+        "github_emails": [
+          "dquiroga@empresa.com"
+        ]
+      },
       "capacity": {
         "hours_per_month": 160,
         "availability_percent": 90,
@@ -210,6 +250,14 @@
       "email": "mfuentes@empresa.com",
       "active": true,
       "on_leave": true,
+      "identities": {
+        "jira_email": "mfuentes@empresa.com",
+        "jira_display_name": "Mariana Fuentes",
+        "github_login": "mfuentes",
+        "github_emails": [
+          "mfuentes@empresa.com"
+        ]
+      },
       "capacity": {
         "hours_per_month": 160,
         "availability_percent": 80,

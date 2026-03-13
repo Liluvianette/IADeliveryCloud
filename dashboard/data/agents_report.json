@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-09T00:03:46.496226",
+  "generated_at": "2026-03-13T02:54:26.749722",
   "verdicts": {
     "capacity": "CRÍTICO",
     "risk": "ALTO RIESGO",
@@ -9,7 +9,7 @@
     "capacity": {
       "agent": "capacity_analyst",
       "role": "Capacity Analyst",
-      "timestamp": "2026-03-08T18:03:46.486912",
+      "timestamp": "2026-03-12T20:54:26.739920",
       "verdict": "CRÍTICO",
       "findings": [
         {
@@ -75,7 +75,7 @@
     "risk": {
       "agent": "risk_officer",
       "role": "Risk Officer",
-      "timestamp": "2026-03-08T18:03:46.491769",
+      "timestamp": "2026-03-12T20:54:26.744681",
       "verdict": "ALTO RIESGO",
       "findings": [
         {
@@ -483,7 +483,7 @@
     "tech_lead": {
       "agent": "tech_lead",
       "role": "Tech Lead Reviewer",
-      "timestamp": "2026-03-08T18:03:46.495998",
+      "timestamp": "2026-03-12T20:54:26.749469",
       "verdict": "NO VIABLE",
       "findings": [
         {

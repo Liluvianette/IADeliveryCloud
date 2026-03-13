@@ -36,6 +36,21 @@ output:
   path: "./output"
   dashboard_path: "./dashboard"
 
+quarter:
+  current: "Q1-2026"
+  start_date: "2026-01-15"
+  end_date: "2026-05-15"
+
+sprints:
+  cadence_days: 14
+  jira_board_id: null            # auto-discover si null
+
+activity:
+  blocker_threshold_days: 5      # días sin update = posible blocker
+  pr_review_threshold_hours: 48  # PR esperando > esto = bottleneck
+  commit_imputed_hours: 0.5      # horas estimadas por commit (proxy)
+  silent_member_threshold_days: 5
+
 reports:
   logo_path: null                # Ruta a logo para PDF (opcional)
   company_name: "Tu Organización"

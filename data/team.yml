@@ -15,6 +15,11 @@ team:
     seniority: "senior"
     email: "amartinez@empresa.com"
     active: true
+    identities:
+      jira_email: "amartinez@empresa.com"
+      jira_display_name: "Alejandro Martínez"
+      github_login: "amartinez"
+      github_emails: ["amartinez@empresa.com"]
 
     capacity:
       hours_per_month: 160
@@ -51,6 +56,11 @@ team:
     seniority: "senior"
     email: "cvalencia@empresa.com"
     active: true
+    identities:
+      jira_email: "cvalencia@empresa.com"
+      jira_display_name: "Carolina Valencia"
+      github_login: "cvalencia"
+      github_emails: ["cvalencia@empresa.com"]
 
     capacity:
       hours_per_month: 160
@@ -89,6 +99,11 @@ team:
     seniority: "semi-senior"
     email: "romena@empresa.com"
     active: true
+    identities:
+      jira_email: "romena@empresa.com"
+      jira_display_name: "Roberto Omena"
+      github_login: "romena"
+      github_emails: ["romena@empresa.com"]
 
     capacity:
       hours_per_month: 160
@@ -125,6 +140,11 @@ team:
     seniority: "semi-senior"
     email: "lcastro@empresa.com"
     active: true
+    identities:
+      jira_email: "lcastro@empresa.com"
+      jira_display_name: "Lucía Castro"
+      github_login: "lcastro"
+      github_emails: ["lcastro@empresa.com"]
 
     capacity:
       hours_per_month: 160
@@ -161,6 +181,11 @@ team:
     seniority: "junior"
     email: "dquiroga@empresa.com"
     active: true
+    identities:
+      jira_email: "dquiroga@empresa.com"
+      jira_display_name: "Diego Quiroga"
+      github_login: "dquiroga"
+      github_emails: ["dquiroga@empresa.com"]
 
     capacity:
       hours_per_month: 160
@@ -197,6 +222,11 @@ team:
     seniority: "semi-senior"
     email: "mfuentes@empresa.com"
     active: true
+    identities:
+      jira_email: "mfuentes@empresa.com"
+      jira_display_name: "Mariana Fuentes"
+      github_login: "mfuentes"
+      github_emails: ["mfuentes@empresa.com"]
 
     capacity:
       hours_per_month: 160

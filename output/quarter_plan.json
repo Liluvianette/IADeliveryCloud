@@ -1,0 +1,511 @@
+{
+  "generated_at": "2026-03-13T02:54:26.511048",
+  "quarter": {
+    "name": "Q1-2026",
+    "start_date": "2026-01-15",
+    "end_date": "2026-05-15",
+    "total_months": 3.94,
+    "months_remaining": 2.1,
+    "sprints_remaining": 4
+  },
+  "mm_table": [
+    {
+      "member_id": "amartinez",
+      "name": "Alejandro Martínez",
+      "role": "Tech Lead Cloud",
+      "seniority": "senior",
+      "on_leave": false,
+      "available_mm": 1.47,
+      "allocated_mm": 1.79,
+      "free_mm": 0.0,
+      "load_percent": 121.8,
+      "overloaded": true,
+      "projects": [
+        {
+          "id": "PROJ-001",
+          "name": "Migración Plataforma Core a EKS",
+          "type": "iac",
+          "severity": "critica",
+          "role": "Arquitecto / Tech Lead",
+          "allocation_percent": 35,
+          "mm": 0.73
+        },
+        {
+          "id": "PROJ-002",
+          "name": "Zero Trust & Hardening IAM",
+          "type": "desarrollo",
+          "severity": "critica",
+          "role": "Revisión de arquitectura",
+          "allocation_percent": 15,
+          "mm": 0.32
+        },
+        {
+          "id": "PROJ-003",
+          "name": "Soporte Operacional L2 — Producción",
+          "type": "soporte",
+          "severity": "alta",
+          "role": "Escalación L3",
+          "allocation_percent": 10,
+          "mm": 0.21
+        },
+        {
+          "id": "PROJ-005",
+          "name": "Observabilidad Centralizada — Stack Completo",
+          "type": "iac",
+          "severity": "alta",
+          "role": "Arquitectura y revisión",
+          "allocation_percent": 10,
+          "mm": 0.21
+        },
+        {
+          "id": "PROJ-009",
+          "name": "Platform Engineering — Portal de Desarrolladores",
+          "type": "investigacion",
+          "severity": "media",
+          "role": "Sponsor técnico",
+          "allocation_percent": 15,
+          "mm": 0.32
+        }
+      ]
+    },
+    {
+      "member_id": "cvalencia",
+      "name": "Carolina Valencia",
+      "role": "Tech Lead DevSecOps",
+      "seniority": "senior",
+      "on_leave": false,
+      "available_mm": 1.57,
+      "allocated_mm": 1.9,
+      "free_mm": 0.0,
+      "load_percent": 121.0,
+      "overloaded": true,
+      "projects": [
+        {
+          "id": "PROJ-002",
+          "name": "Zero Trust & Hardening IAM",
+          "type": "desarrollo",
+          "severity": "critica",
+          "role": "Security Lead / Arquitecta",
+          "allocation_percent": 45,
+          "mm": 0.95
+        },
+        {
+          "id": "PROJ-003",
+          "name": "Soporte Operacional L2 — Producción",
+          "type": "soporte",
+          "severity": "alta",
+          "role": "Escalación Seguridad",
+          "allocation_percent": 10,
+          "mm": 0.21
+        },
+        {
+          "id": "PROJ-004",
+          "name": "Pipeline Factory — CI/CD Unificado",
+          "type": "iac",
+          "severity": "alta",
+          "role": "Security gates en pipelines",
+          "allocation_percent": 15,
+          "mm": 0.32
+        },
+        {
+          "id": "PROJ-007",
+          "name": "Onboarding Técnico — Nuevo Equipo Fintech",
+          "type": "soporte",
+          "severity": "media",
+          "role": "Lead Onboarding / Seguridad",
+          "allocation_percent": 20,
+          "mm": 0.42
+        }
+      ]
+    },
+    {
+      "member_id": "romena",
+      "name": "Roberto Omena",
+      "role": "DevOps Engineer",
+      "seniority": "semi-senior",
+      "on_leave": false,
+      "available_mm": 1.89,
+      "allocated_mm": 1.99,
+      "free_mm": 0.0,
+      "load_percent": 105.3,
+      "overloaded": true,
+      "projects": [
+        {
+          "id": "PROJ-001",
+          "name": "Migración Plataforma Core a EKS",
+          "type": "iac",
+          "severity": "critica",
+          "role": "Implementación IaC",
+          "allocation_percent": 40,
+          "mm": 0.84
+        },
+        {
+          "id": "PROJ-003",
+          "name": "Soporte Operacional L2 — Producción",
+          "type": "soporte",
+          "severity": "alta",
+          "role": "SRE On-call Lead",
+          "allocation_percent": 20,
+          "mm": 0.42
+        },
+        {
+          "id": "PROJ-004",
+          "name": "Pipeline Factory — CI/CD Unificado",
+          "type": "iac",
+          "severity": "alta",
+          "role": "Lead Engineer",
+          "allocation_percent": 35,
+          "mm": 0.73
+        }
+      ]
+    },
+    {
+      "member_id": "lcastro",
+      "name": "Lucía Castro",
+      "role": "DevOps Engineer",
+      "seniority": "semi-senior",
+      "on_leave": false,
+      "available_mm": 1.79,
+      "allocated_mm": 2.74,
+      "free_mm": 0.0,
+      "load_percent": 153.1,
+      "overloaded": true,
+      "projects": [
+        {
+          "id": "PROJ-001",
+          "name": "Migración Plataforma Core a EKS",
+          "type": "iac",
+          "severity": "critica",
+          "role": "Observabilidad y monitoreo",
+          "allocation_percent": 30,
+          "mm": 0.63
+        },
+        {
+          "id": "PROJ-003",
+          "name": "Soporte Operacional L2 — Producción",
+          "type": "soporte",
+          "severity": "alta",
+          "role": "On-call Observabilidad",
+          "allocation_percent": 15,
+          "mm": 0.32
+        },
+        {
+          "id": "PROJ-005",
+          "name": "Observabilidad Centralizada — Stack Completo",
+          "type": "iac",
+          "severity": "alta",
+          "role": "Lead — Observabilidad",
+          "allocation_percent": 40,
+          "mm": 0.84
+        },
+        {
+          "id": "PROJ-006",
+          "name": "Deuda Técnica — Terraform Upgrade v1.7",
+          "type": "iac",
+          "severity": "media",
+          "role": "Lead técnico",
+          "allocation_percent": 15,
+          "mm": 0.32
+        },
+        {
+          "id": "PROJ-009",
+          "name": "Platform Engineering — Portal de Desarrolladores",
+          "type": "investigacion",
+          "severity": "media",
+          "role": "Lead investigación",
+          "allocation_percent": 30,
+          "mm": 0.63
+        }
+      ]
+    },
+    {
+      "member_id": "dquiroga",
+      "name": "Diego Quiroga",
+      "role": "DevOps Engineer",
+      "seniority": "junior",
+      "on_leave": false,
+      "available_mm": 1.89,
+      "allocated_mm": 2.21,
+      "free_mm": 0.0,
+      "load_percent": 116.9,
+      "overloaded": true,
+      "projects": [
+        {
+          "id": "PROJ-002",
+          "name": "Zero Trust & Hardening IAM",
+          "type": "desarrollo",
+          "severity": "critica",
+          "role": "Soporte implementación",
+          "allocation_percent": 25,
+          "mm": 0.53
+        },
+        {
+          "id": "PROJ-004",
+          "name": "Pipeline Factory — CI/CD Unificado",
+          "type": "iac",
+          "severity": "alta",
+          "role": "Implementación templates",
+          "allocation_percent": 40,
+          "mm": 0.84
+        },
+        {
+          "id": "PROJ-006",
+          "name": "Deuda Técnica — Terraform Upgrade v1.7",
+          "type": "iac",
+          "severity": "media",
+          "role": "Implementación y testing",
+          "allocation_percent": 20,
+          "mm": 0.42
+        },
+        {
+          "id": "PROJ-007",
+          "name": "Onboarding Técnico — Nuevo Equipo Fintech",
+          "type": "soporte",
+          "severity": "media",
+          "role": "Setup repos y accesos",
+          "allocation_percent": 20,
+          "mm": 0.42
+        }
+      ]
+    },
+    {
+      "member_id": "mfuentes",
+      "name": "Mariana Fuentes",
+      "role": "Cloud Engineer",
+      "seniority": "semi-senior",
+      "on_leave": true,
+      "available_mm": 0.0,
+      "allocated_mm": 1.16,
+      "free_mm": 0.0,
+      "load_percent": 999.0,
+      "overloaded": true,
+      "projects": [
+        {
+          "id": "PROJ-005",
+          "name": "Observabilidad Centralizada — Stack Completo",
+          "type": "iac",
+          "severity": "alta",
+          "role": "Implementación dashboards",
+          "allocation_percent": 30,
+          "mm": 0.63
+        },
+        {
+          "id": "PROJ-009",
+          "name": "Platform Engineering — Portal de Desarrolladores",
+          "type": "investigacion",
+          "severity": "media",
+          "role": "Desarrollo plugins",
+          "allocation_percent": 25,
+          "mm": 0.53
+        }
+      ]
+    }
+  ],
+  "project_summary": [
+    {
+      "id": "PROJ-001",
+      "name": "Migración Plataforma Core a EKS",
+      "type": "iac",
+      "severity": "critica",
+      "status": "activo",
+      "total_mm": 2.2,
+      "members": [
+        {
+          "name": "Alejandro Martínez",
+          "role": "Arquitecto / Tech Lead",
+          "mm": 0.73
+        },
+        {
+          "name": "Roberto Omena",
+          "role": "Implementación IaC",
+          "mm": 0.84
+        },
+        {
+          "name": "Lucía Castro",
+          "role": "Observabilidad y monitoreo",
+          "mm": 0.63
+        }
+      ]
+    },
+    {
+      "id": "PROJ-002",
+      "name": "Zero Trust & Hardening IAM",
+      "type": "desarrollo",
+      "severity": "critica",
+      "status": "activo",
+      "total_mm": 1.8,
+      "members": [
+        {
+          "name": "Alejandro Martínez",
+          "role": "Revisión de arquitectura",
+          "mm": 0.32
+        },
+        {
+          "name": "Carolina Valencia",
+          "role": "Security Lead / Arquitecta",
+          "mm": 0.95
+        },
+        {
+          "name": "Diego Quiroga",
+          "role": "Soporte implementación",
+          "mm": 0.53
+        }
+      ]
+    },
+    {
+      "id": "PROJ-003",
+      "name": "Soporte Operacional L2 — Producción",
+      "type": "soporte",
+      "severity": "alta",
+      "status": "activo",
+      "total_mm": 1.16,
+      "members": [
+        {
+          "name": "Alejandro Martínez",
+          "role": "Escalación L3",
+          "mm": 0.21
+        },
+        {
+          "name": "Carolina Valencia",
+          "role": "Escalación Seguridad",
+          "mm": 0.21
+        },
+        {
+          "name": "Roberto Omena",
+          "role": "SRE On-call Lead",
+          "mm": 0.42
+        },
+        {
+          "name": "Lucía Castro",
+          "role": "On-call Observabilidad",
+          "mm": 0.32
+        }
+      ]
+    },
+    {
+      "id": "PROJ-004",
+      "name": "Pipeline Factory — CI/CD Unificado",
+      "type": "iac",
+      "severity": "alta",
+      "status": "activo",
+      "total_mm": 1.89,
+      "members": [
+        {
+          "name": "Carolina Valencia",
+          "role": "Security gates en pipelines",
+          "mm": 0.32
+        },
+        {
+          "name": "Roberto Omena",
+          "role": "Lead Engineer",
+          "mm": 0.73
+        },
+        {
+          "name": "Diego Quiroga",
+          "role": "Implementación templates",
+          "mm": 0.84
+        }
+      ]
+    },
+    {
+      "id": "PROJ-005",
+      "name": "Observabilidad Centralizada — Stack Completo",
+      "type": "iac",
+      "severity": "alta",
+      "status": "activo",
+      "total_mm": 1.68,
+      "members": [
+        {
+          "name": "Alejandro Martínez",
+          "role": "Arquitectura y revisión",
+          "mm": 0.21
+        },
+        {
+          "name": "Lucía Castro",
+          "role": "Lead — Observabilidad",
+          "mm": 0.84
+        },
+        {
+          "name": "Mariana Fuentes",
+          "role": "Implementación dashboards",
+          "mm": 0.63
+        }
+      ]
+    },
+    {
+      "id": "PROJ-006",
+      "name": "Deuda Técnica — Terraform Upgrade v1.7",
+      "type": "iac",
+      "severity": "media",
+      "status": "activo",
+      "total_mm": 0.74,
+      "members": [
+        {
+          "name": "Lucía Castro",
+          "role": "Lead técnico",
+          "mm": 0.32
+        },
+        {
+          "name": "Diego Quiroga",
+          "role": "Implementación y testing",
+          "mm": 0.42
+        }
+      ]
+    },
+    {
+      "id": "PROJ-007",
+      "name": "Onboarding Técnico — Nuevo Equipo Fintech",
+      "type": "soporte",
+      "severity": "media",
+      "status": "activo",
+      "total_mm": 0.84,
+      "members": [
+        {
+          "name": "Carolina Valencia",
+          "role": "Lead Onboarding / Seguridad",
+          "mm": 0.42
+        },
+        {
+          "name": "Diego Quiroga",
+          "role": "Setup repos y accesos",
+          "mm": 0.42
+        }
+      ]
+    },
+    {
+      "id": "PROJ-009",
+      "name": "Platform Engineering — Portal de Desarrolladores",
+      "type": "investigacion",
+      "severity": "media",
+      "status": "planificado",
+      "total_mm": 1.48,
+      "members": [
+        {
+          "name": "Alejandro Martínez",
+          "role": "Sponsor técnico",
+          "mm": 0.32
+        },
+        {
+          "name": "Lucía Castro",
+          "role": "Lead investigación",
+          "mm": 0.63
+        },
+        {
+          "name": "Mariana Fuentes",
+          "role": "Desarrollo plugins",
+          "mm": 0.53
+        }
+      ]
+    }
+  ],
+  "team_summary": {
+    "total_available_mm": 8.61,
+    "total_allocated_mm": 11.79,
+    "total_free_mm": 0.0,
+    "team_load_percent": 136.9,
+    "can_absorb_new_project": false,
+    "max_absorbable_mm": 0.0,
+    "overloaded_count": 6,
+    "on_leave_count": 1
+  }
+}
